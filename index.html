@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelForge | Gaming & Internet Café</title>
+    <!-- 
+        Hier kannst du dein eigenes CSS einbinden,
+        z.B. <link rel="stylesheet" href="styles.css">
+        oder ein <style> Tag einfügen.
+    -->
+</head>
+<body>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo">
+                <div class="logo-icon">🎮</div>
+                <span>PixelForge</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#preise">Preise</a></li>
+                <li><a href="#ausstattung">Ausstattung</a></li>
+                <li><a href="#buchung">Buchung</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#gastro">Gastro</a></li>
+                <li><a href="#buchung" class="nav-cta">Jetzt buchen</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO / HOME ==================== -->
+    <section class="hero full-width" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Dein <span class="glow">Next-Level</span><br>Gaming Café</h1>
+            <p>High-End PCs, Konsolen-Lounges, VR-Arenen – dazu die beste Community der Stadt. 24/7 geöffnet für Gamer, Streamer und E-Sports-Fans.</p>
+            <div class="hero-buttons">
+                <a href="#buchung" class="btn btn-primary">Platz reservieren</a>
+                <a href="#preise" class="btn btn-outline">Tarife ansehen</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="stat-value">40+</div>
+                    <div class="stat-label">Gaming-PCs</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Konsolen-Stationen</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Geöffnet</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-value">2.500+</div>
+                    <div class="stat-label">Spiele</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LOCATION / BASICS ==================== -->
+    <section id="location">
+        <div class="section-header">
+            <div class="section-tag">📍 Standort & Kontakt</div>
+            <h2 class="section-title">Finde <span class="gradient-text">PixelForge</span></h2>
+            <p class="section-subtitle">Zentral gelegen, perfekt erreichbar – mitten im Herzen der Gaming-Szene.</p>
+        </div>
+        <div class="location-grid">
+            <div class="map-container">
+                <iframe
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=13.3700%2C52.5100%2C13.3900%2C52.5250&layer=mapnik&marker=52.5175%2C13.3800"
+                    title="Standort PixelForge"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div class="map-overlay">
+                    🎮 PixelForge – Müllerstraße 42, 13353 Berlin
+                </div>
+            </div>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-icon cyan">📍</div>
+                    <div class="info-detail">
+                        <h4>Adresse</h4>
+                        <p>Müllerstraße 42, 13353 Berlin</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon green">🕐</div>
+                    <div class="info-detail">
+                        <h4>Öffnungszeiten</h4>
+                        <p>Mo–Do: 10:00 – 02:00 Uhr<br>Fr–Sa: 10:00 – 06:00 Uhr<br>So: 12:00 – 00:00 Uhr</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon magenta">📞</div>
+                    <div class="info-detail">
+                        <h4>Kontakt</h4>
+                        <p>+49 30 12345678<br>hey@pixelforge.de</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon purple">🚇</div>
+                    <div class="info-detail">
+                        <h4>Anfahrt</h4>
+                        <p>U6 Leopoldplatz (3 Min. Fußweg)<br>Bus 120, 142, 327</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PREISE ==================== -->
+    <section id="preise">
+        <div class="section-header">
+            <div class="section-tag">💎 Tarife</div>
+            <h2 class="section-title">Faire <span class="gradient-text">Preise</span> für jedes Budget</h2>
+            <p class="section-subtitle">Transparente Tarife ohne versteckte Kosten. Alle Preise inkl. High-End-Hardware & Superschnellem Internet.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="card pricing-card card-glow-purple">
+                <h3>🎯 Starter</h3>
+                <div class="pricing-price">5<small>€</small></div>
+                <p class="pricing-unit">pro Stunde</p>
+                <ul class="pricing-features">
+                    <li>High-End Gaming-PC</li>
+                    <li>1 Gbit/s Internet</li>
+                    <li>Zugang zur Spiele-Bibliothek</li>
+                    <li>Komfortabler Gaming-Stuhl</li>
+                </ul>
+                <a href="#buchung" class="btn btn-outline">Buchen</a>
+            </div>
+            <div class="card pricing-card featured card-glow-cyan">
+                <div class="pricing-badge">🔥 Beliebt</div>
+                <h3>⚡ Tagespass</h3>
+                <div class="pricing-price">25<small>€</small></div>
+                <p class="pricing-unit">10:00 – 22:00 Uhr</p>
+                <ul class="pricing-features">
+                    <li>Unbegrenzte Spielzeit (12h)</li>
+                    <li>1 Gratis Energy-Drink</li>
+                    <li>Reservierter Premium-Platz</li>
+                    <li>5% Rabatt auf Gastro</li>
+                    <li>Priority-Queue bei Turnieren</li>
+                </ul>
+                <a href="#buchung" class="btn btn-primary">Tagespass sichern</a>
+            </div>
+            <div class="card pricing-card card-glow-magenta">
+                <h3>🌙 Night-Surfer</h3>
+                <div class="pricing-price">18<small>€</small></div>
+                <p class="pricing-unit">22:00 – 06:00 Uhr</p>
+                <ul class="pricing-features">
+                    <li>8 Stunden Nacht-Tarif</li>
+                    <li>Ruhige Atmosphäre</li>
+                    <li>2 Kaffee inklusive</li>
+                    <li>Perfekt für Nachtschwärmer</li>
+                </ul>
+                <a href="#buchung" class="btn btn-outline">Night-Mode buchen</a>
+            </div>
+            <div class="card pricing-card card-glow-purple">
+                <h3>👑 VIP-Monat</h3>
+                <div class="pricing-price">89<small>€</small></div>
+                <p class="pricing-unit">30 Tage Flatrate</p>
+                <ul class="pricing-features">
+                    <li>Unbegrenzter Zugang</li>
+                    <li>Eigener Schließfach-Spind</li>
+                    <li>15% Gastro-Rabatt</li>
+                    <li>VIP-Only Events</li>
+                    <li>Express-Check-in</li>
+                </ul>
+                <a href="#buchung" class="btn btn-outline">VIP werden</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== AUSSTATTUNG ==================== -->
+    <section id="ausstattung">
+        <div class="section-header">
+            <div class="section-tag">🖥️ Hardware & Spiele</div>
+            <h2 class="section-title">Top-<span class="gradient-text">Ausstattung</span></h2>
+            <p class="section-subtitle">Professionelles Equipment für kompromissloses Gaming – von 360Hz-Monitoren bis VR.</p>
+        </div>
+        <div class="specs-tabs">
+            <button class="specs-tab active" data-tab="pcs">💻 Gaming-PCs</button>
+            <button class="specs-tab" data-tab="konsolen">🎮 Konsolen & VR</button>
+            <button class="specs-tab" data-tab="bibliothek">📚 Spiele-Bibliothek</button>
+        </div>
+        <div class="specs-content active" id="tab-pcs">
+            <div class="specs-grid">
+                <div class="spec-item"><div class="spec-icon">🖥️</div><div class="spec-detail"><h4>CPU</h4><span>Intel Core i9-14900K / AMD Ryzen 9 7950X3D</span></div></div>
+                <div class="spec-item"><div class="spec-icon">🎮</div><div class="spec-detail"><h4>GPU</h4><span>NVIDIA RTX 4090 24GB / RX 7900 XTX</span></div></div>
+                <div class="spec-item"><div class="spec-icon">🧠</div><div class="spec-detail"><h4>RAM</h4><span>64GB DDR5-6000MHz Corsair Dominator</span></div></div>
+                <div class="spec-item"><div class="spec-icon">🖥️</div><div class="spec-detail"><h4>Monitor</h4><span>ASUS ROG Swift 360Hz OLED 27"</span></div></div>
+                <div class="spec-item"><div class="spec-icon">⌨️</div><div class="spec-detail"><h4>Peripherie</h4><span>Razer Huntsman V3 + DeathAdder V3 Pro</span></div></div>
+                <div class="spec-item"><div class="spec-icon">🎧</div><div class="spec-detail"><h4>Audio</h4><span>Beyerdynamic DT 990 Pro + DAC/AMP</span></div></div>
+                <div class="spec-item"><div class="spec-icon">💾</div><div class="spec-detail"><h4>Speicher</h4><span>2TB NVMe PCIe 5.0 SSD (12 GB/s)</span></div></div>
+                <div class="spec-item"><div class="spec-icon">🌐</div><div class="spec-detail"><h4>Netzwerk</h4><span>10 Gbit/s Glasfaser, &lt;1ms Latenz</span></div></div>
+            </div>
+        </div>
+        <div class="specs-content" id="tab-konsolen">
+            <div class="specs-grid">
+                <div class="spec-item"><div class="spec-icon">🎮</div><div class="spec-detail"><h4>PlayStation 5</h4><span>8 Stationen mit 65" OLED TVs, DualSense Edge Controller</span></div></div>
+                <div class="spec-item"><div class="spec-icon">🎮</div><div class="spec-detail"><h4>Xbox Series X</h4><span>4 Stationen mit 4K 120Hz, Elite Series 2 Controller</span></div></div>
+                <div class="spec-item"><div class="spec-icon">🕹️</div><div class="spec-detail"><h4>Nintendo Switch</h4><span>4 Docking-Stationen, alle Pro Controller</span></div></div>
+                <div class="spec-item"><div class="spec-icon">🥽</div><div class="spec-detail"><h4>VR-Arena</h4><span>Meta Quest 3 + HTC Vive Pro 2, 6x6m Spielfläche</span></div></div>
+                <div class="spec-item"><div class="spec-icon">🏎️</div><div class="spec-detail"><h4>Racing-Sim</h4><span>Fanatec DD Pro, Playseat, Triple 55" Setup</span></div></div>
+                <div class="spec-item"><div class="spec-icon">🕹️</div><div class="spec-detail"><h4>Retro-Corner</h4><span>SNES, N64, GameCube, Sega Mega Drive</span></div></div>
+            </div>
+        </div>
+        <div class="specs-content" id="tab-bibliothek">
+            <div class="game-library-search">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="gameSearch" placeholder="Spiele durchsuchen... (z.B. Valorant, Minecraft, Elden Ring)">
+            </div>
+            <div class="games-grid" id="gamesGrid">
+                <!-- Wird via JS befüllt -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BUCHUNGSSYSTEM ==================== -->
+    <section id="buchung">
+        <div class="section-header">
+            <div class="section-tag">🎯 Sitzplan & Reservierung</div>
+            <h2 class="section-title">Platz <span class="gradient-text">buchen</span></h2>
+            <p class="section-subtitle">Wähle deinen Lieblingsplatz direkt im interaktiven Sitzplan und reserviere ihn in Echtzeit.</p>
+        </div>
+        <div class="booking-container">
+            <div class="seat-map" id="seatMap">
+                <div class="seat-map-legend">
+                    <div class="legend-item"><div class="legend-dot available"></div> Verfügbar</div>
+                    <div class="legend-item"><div class="legend-dot occupied"></div> Belegt</div>
+                    <div class="legend-item"><div class="legend-dot reserved"></div> Reserviert</div>
+                    <div class="legend-item"><div class="legend-dot selected"></div> Ausgewählt</div>
+                </div>
+                <div class="zone-label">💻 PC-Area (Reihe A)</div>
+                <div class="seats-row" id="rowA"></div>
+                <div class="zone-label">💻 PC-Area (Reihe B – Premium)</div>
+                <div class="seats-row" id="rowB"></div>
+                <div class="zone-label">🎮 Konsolen-Lounge</div>
+                <div class="seats-row" id="rowConsole"></div>
+                <div class="zone-label">🥽 VR-Arena</div>
+                <div class="seats-row" id="rowVR"></div>
+                <div class="zone-label">🛋️ Lounge / Co-Working</div>
+                <div class="seats-row" id="rowLounge"></div>
+            </div>
+            <div class="booking-panel" id="bookingPanel">
+                <h3>📋 Reservierung</h3>
+                <div class="booking-form">
+                    <label for="selectedSeatDisplay">Ausgewählter Platz</label>
+                    <input type="text" id="selectedSeatDisplay" value="Kein Platz ausgewählt" readonly>
+                    <label for="bookingDate">Datum</label>
+                    <input type="date" id="bookingDate" min="">
+                    <label for="bookingTime">Uhrzeit (Start)</label>
+                    <select id="bookingTime">
+                        <option value="">Bitte wählen...</option>
+                        <option>10:00</option><option>12:00</option><option>14:00</option><option>16:00</option>
+                        <option>18:00</option><option>20:00</option><option>22:00</option><option>00:00</option>
+                    </select>
+                    <label for="bookingTarif">Tarif</label>
+                    <select id="bookingTarif">
+                        <option value="5">Starter (5€/h)</option>
+                        <option value="25">Tagespass (25€)</option>
+                        <option value="18">Night-Surfer (18€)</option>
+                        <option value="89">VIP-Monat (89€)</option>
+                    </select>
+                    <div class="booking-summary">
+                        <strong>Summe:</strong> <span id="bookingTotal">0,00 €</span><br>
+                        <small>Zahlung vor Ort oder per PayPal</small>
+                    </div>
+                    <button class="btn btn-primary booking-confirm" id="confirmBooking">✅ Reservierung bestätigen</button>
+                </div>
+            </div>
+        </div>
+        <div class="booking-toast" id="bookingToast">✅ Erfolgreich reserviert! Wir freuen uns auf dich! 🎮</div>
+    </section>
+
+    <!-- ==================== COMMUNITY & EVENTS ==================== -->
+    <section id="community">
+        <div class="section-header">
+            <div class="section-tag">🏆 Community & Events</div>
+            <h2 class="section-title">Mehr als <span class="gradient-text">nur Gaming</span></h2>
+            <p class="section-subtitle">Turniere, Watch-Partys, Leaderboards – werde Teil unserer aktiven Community.</p>
+        </div>
+        <div class="community-grid">
+            <div>
+                <h3>📅 Kommende Events</h3>
+                <div class="events-list">
+                    <div class="event-card">
+                        <div class="event-date"><div class="day">22</div><div class="month">Juni</div></div>
+                        <div class="event-info">
+                            <span class="event-tag tournament">Turnier</span>
+                            <h4>Valorant 5v5 Cup</h4>
+                            <p>500€ Preisgeld • 18:00 Uhr • Anmeldung offen</p>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date"><div class="day">28</div><div class="month">Juni</div></div>
+                        <div class="event-info">
+                            <span class="event-tag watchparty">Watch-Party</span>
+                            <h4>LoL Worlds Viewing</h4>
+                            <p>Großbildleinwand • 20:00 Uhr • Gratis Snacks</p>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date"><div class="day">05</div><div class="month">Juli</div></div>
+                        <div class="event-info">
+                            <span class="event-tag tournament">Turnier</span>
+                            <h4>FIFA 25 Championship</h4>
+                            <p>1v1 K.O.-System • 16:00 Uhr • 300€ Preisgeld</p>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date"><div class="day">12</div><div class="month">Juli</div></div>
+                        <div class="event-info">
+                            <span class="event-tag watchparty">Watch-Party</span>
+                            <h4>CS2 Major Finale</h4>
+                            <p>4K Beamer • 19:00 Uhr • Community-Voting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="leaderboard">
+                <h3>🏅 Lokale Leaderboards</h3>
+                <p class="leaderboard-subtitle">Top-Spieler diesen Monat – Highscores</p>
+                <div class="leaderboard-entry">
+                    <div class="leaderboard-rank gold">1</div>
+                    <div class="leaderboard-name">xX_ShadowBlade_Xx</div>
+                    <div class="leaderboard-score">48.520 Pkt.</div>
+                </div>
+                <div class="leaderboard-entry">
+                    <div class="leaderboard-rank silver">2</div>
+                    <div class="leaderboard-name">NeonFury99</div>
+                    <div class="leaderboard-score">44.100 Pkt.</div>
+                </div>
+                <div class="leaderboard-entry">
+                    <div class="leaderboard-rank bronze">3</div>
+                    <div class="leaderboard-name">PixelQueen</div>
+                    <div class="leaderboard-score">39.870 Pkt.</div>
+                </div>
+                <div class="leaderboard-entry">
+                    <div class="leaderboard-rank normal">4</div>
+                    <div class="leaderboard-name">AimBot3000</div>
+                    <div class="leaderboard-score">35.200 Pkt.</div>
+                </div>
+                <div class="leaderboard-entry">
+                    <div class="leaderboard-rank normal">5</div>
+                    <div class="leaderboard-name">NightOwl_GG</div>
+                    <div class="leaderboard-score">31.450 Pkt.</div>
+                </div>
+                <div class="leaderboard-entry">
+                    <div class="leaderboard-rank normal">6</div>
+                    <div class="leaderboard-name">RocketRanger</div>
+                    <div class="leaderboard-score">28.900 Pkt.</div>
+                </div>
+                <div class="leaderboard-entry">
+                    <div class="leaderboard-rank normal">7</div>
+                    <div class="leaderboard-name">PhantomStrike</div>
+                    <div class="leaderboard-score">26.330 Pkt.</div>
+                </div>
+                <div class="leaderboard-entry">
+                    <div class="leaderboard-rank normal">8</div>
+                    <div class="leaderboard-name">LootGoblin</div>
+                    <div class="leaderboard-score">23.710 Pkt.</div>
+                </div>
+            </div>
+        </div>
+        <div class="discord-section">
+            <h3>💬 Discord-Community</h3>
+            <div class="discord-widget">
+                <iframe src="https://discord.com/widget?id=123456789012345678&theme=dark" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" title="Discord Widget">
+                </iframe>
+            </div>
+            <p class="discord-invite">
+                👋 Tritt unserem Discord bei: <strong>discord.gg/pixelforge</strong> – über 1.200 Member!
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== GASTRO ==================== -->
+    <section id="gastro">
+        <div class="section-header">
+            <div class="section-tag">🍕 Nervennahrung</div>
+            <h2 class="section-title">Gastro-<span class="gradient-text">Menü</span></h2>
+            <p class="section-subtitle">Energie für lange Sessions – Snacks, Drinks & mehr.</p>
+        </div>
+        <div class="menu-categories">
+            <button class="menu-cat active" data-cat="all">🍽️ Alle</button>
+            <button class="menu-cat" data-cat="snacks">🍕 Snacks</button>
+            <button class="menu-cat" data-cat="energy">⚡ Energy Drinks</button>
+            <button class="menu-cat" data-cat="kaffee">☕ Kaffee & Heißgetränke</button>
+            <button class="menu-cat" data-cat="soft">🥤 Softdrinks</button>
+        </div>
+        <div class="menu-grid" id="menuGrid">
+            <!-- Snacks -->
+            <div class="menu-item card" data-cat="snacks"><span class="menu-emoji">🍕</span><h4>Pizza Salami</h4><p class="menu-desc">Frisch gebacken, 28cm</p><p class="menu-price">8,50 €</p></div>
+            <div class="menu-item card" data-cat="snacks"><span class="menu-emoji">🍔</span><h4>Gaming-Burger</h4><p class="menu-desc">180g Beef, Bacon, Cheddar</p><p class="menu-price">9,90 €</p></div>
+            <div class="menu-item card" data-cat="snacks"><span class="menu-emoji">🌮</span><h4>Loaded Nachos</h4><p class="menu-desc">Mit Käse, Jalapeños & Salsa</p><p class="menu-price">7,50 €</p></div>
+            <div class="menu-item card" data-cat="snacks"><span class="menu-emoji">🥨</span><h4>Brezel-Sticks</h4><p class="menu-desc">Mit Kräuterbutter-Dip</p><p class="menu-price">5,00 €</p></div>
+            <div class="menu-item card" data-cat="snacks"><span class="menu-emoji">🍟</span><h4>Pommes Frites</h4><p class="menu-desc">XL-Portion mit Dips</p><p class="menu-price">6,00 €</p></div>
+            <div class="menu-item card" data-cat="snacks"><span class="menu-emoji">🥗</span><h4>Protein-Bowl</h4><p class="menu-desc">Quinoa, Avocado, Hühnchen</p><p class="menu-price">11,00 €</p></div>
+            <!-- Energy Drinks -->
+            <div class="menu-item card" data-cat="energy"><span class="menu-emoji">⚡</span><h4>Red Bull</h4><p class="menu-desc">250ml Dose</p><p class="menu-price">3,50 €</p></div>
+            <div class="menu-item card" data-cat="energy"><span class="menu-emoji">⚡</span><h4>Monster Energy</h4><p class="menu-desc">500ml Dose, versch. Sorten</p><p class="menu-price">4,00 €</p></div>
+            <div class="menu-item card" data-cat="energy"><span class="menu-emoji">🧊</span><h4>Gamer Fuel</h4><p class="menu-desc">Hausgemachter Energy-Mix</p><p class="menu-price">5,50 €</p></div>
+            <!-- Kaffee -->
+            <div class="menu-item card" data-cat="kaffee"><span class="menu-emoji">☕</span><h4>Espresso</h4><p class="menu-desc">Doppelter Shot</p><p class="menu-price">2,80 €</p></div>
+            <div class="menu-item card" data-cat="kaffee"><span class="menu-emoji">🫗</span><h4>Cappuccino</h4><p class="menu-desc">Mit Milchschaum</p><p class="menu-price">4,00 €</p></div>
+            <div class="menu-item card" data-cat="kaffee"><span class="menu-emoji">🍵</span><h4>Matcha Latte</h4><p class="menu-desc">Heiß oder kalt</p><p class="menu-price">4,80 €</p></div>
+            <div class="menu-item card" data-cat="kaffee"><span class="menu-emoji">☕</span><h4>Flat White</h4><p class="menu-desc">Perfekt für die Night-Session</p><p class="menu-price">4,20 €</p></div>
+            <!-- Softdrinks -->
+            <div class="menu-item card" data-cat="soft"><span class="menu-emoji">🥤</span><h4>Coca-Cola</h4><p class="menu-desc">0,5l Glasflasche</p><p class="menu-price">3,00 €</p></div>
+            <div class="menu-item card" data-cat="soft"><span class="menu-emoji">💧</span><h4>Mineralwasser</h4><p class="menu-desc">0,75l, mit/ohne Sprudel</p><p class="menu-price">2,50 €</p></div>
+            <div class="menu-item card" data-cat="soft"><span class="menu-emoji">🧋</span><h4>Bubble Tea</h4><p class="menu-desc">Verschiedene Sorten</p><p class="menu-price">5,00 €</p></div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#preise">Preise</a>
+            <a href="#ausstattung">Ausstattung</a>
+            <a href="#buchung">Buchung</a>
+            <a href="#community">Community</a>
+            <a href="#gastro">Gastro</a>
+            <a href="#">AGB</a>
+            <a href="#">Datenschutz</a>
+            <a href="#">Impressum</a>
+        </div>
+        <p>&copy; 2026 PixelForge Gaming Café — Made with ❤️ for the Community</p>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // Mobile Menü
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            mobileMenuBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+
+        // Navbar Scroll-Effekt & Active-Link
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            const sections = document.querySelectorAll('section[id]');
+            let current = '';
+            sections.forEach(s => {
+                const top = s.offsetTop - 120;
+                if (window.scrollY >= top) current = s.getAttribute('id');
+            });
+            navLinks.querySelectorAll('a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+            });
+        });
+
+        // Ausstattungs-Tabs
+        document.querySelectorAll('.specs-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.specs-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.specs-content').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Spiele-Bibliothek (Suchfilter)
+        const games = [
+            { name: 'Valorant', emoji: '🎯' }, { name: 'League of Legends', emoji: '⚔️' }, { name: 'CS2', emoji: '🔫' },
+            { name: 'Fortnite', emoji: '🏗️' }, { name: 'Minecraft', emoji: '⛏️' }, { name: 'Elden Ring', emoji: '🐉' },
+            { name: 'Cyberpunk 2077', emoji: '🤖' }, { name: 'Apex Legends', emoji: '🦾' }, { name: 'Overwatch 2', emoji: '🛡️' },
+            { name: 'Dota 2', emoji: '🗡️' }, { name: 'GTA V', emoji: '🚗' }, { name: 'Call of Duty', emoji: '💥' },
+            { name: 'Rocket League', emoji: '🚀' }, { name: 'FIFA 25', emoji: '⚽' }, { name: 'Diablo IV', emoji: '😈' },
+            { name: 'Starfield', emoji: '🌌' }, { name: 'Baldur\'s Gate 3', emoji: '🎲' }, { name: 'Rainbow Six Siege', emoji: '🏚️' },
+            { name: 'Warzone', emoji: '🪂' }, { name: 'PUBG', emoji: '🍗' }, { name: 'Deadlock', emoji: '🔮' },
+            { name: 'Hades II', emoji: '🔥' }, { name: 'Tekken 8', emoji: '🥊' }, { name: 'Street Fighter 6', emoji: '👊' },
+            { name: 'Assetto Corsa', emoji: '🏎️' }, { name: 'Beat Saber', emoji: '🎵' }, { name: 'Half-Life: Alyx', emoji: '🥽' },
+            { name: 'Phasmophobia', emoji: '👻' }, { name: 'Among Us', emoji: '🚀' }, { name: 'Terraria', emoji: '🌳' },
+        ];
+        const gamesGrid = document.getElementById('gamesGrid');
+        function renderGames(filter = '') {
+            gamesGrid.innerHTML = '';
+            games.forEach(g => {
+                const tile = document.createElement('div');
+                tile.className = 'game-tile';
+                tile.innerHTML = `<span class="game-emoji">${g.emoji}</span>${g.name}`;
+                if (filter && !g.name.toLowerCase().includes(filter.toLowerCase())) {
+                    tile.classList.add('hidden');
+                }
+                gamesGrid.appendChild(tile);
+            });
+        }
+        renderGames();
+        document.getElementById('gameSearch').addEventListener('input', (e) => renderGames(e.target.value));
+
+        // Sitzplan & Buchung
+        const seatState = {};
+        let selectedSeatId = null;
+
+        function createSeat(id, zone, label) {
+            const seat = document.createElement('div');
+            const rand = Math.random();
+            let state = 'available';
+            if (rand < 0.25) state = 'occupied';
+            else if (rand < 0.35) state = 'reserved';
+            seatState[id] = { state, zone, label };
+            seat.className = `seat ${state}`;
+            seat.textContent = label;
+            seat.dataset.id = id;
+            seat.addEventListener('click', () => selectSeat(id, seat));
+            return seat;
+        }
+
+        function selectSeat(id, element) {
+            if (seatState[id].state === 'occupied' || seatState[id].state === 'reserved') return;
+            document.querySelectorAll('.seat.selected').forEach(s => {
+                s.classList.remove('selected');
+                const sid = s.dataset.id;
+                if (seatState[sid]) s.className = `seat ${seatState[sid].state}`;
+            });
+            if (selectedSeatId === id) {
+                selectedSeatId = null;
+                document.getElementById('selectedSeatDisplay').value = 'Kein Platz ausgewählt';
+                updateTotal();
+                return;
+            }
+            selectedSeatId = id;
+            element.classList.add('selected');
+            document.getElementById('selectedSeatDisplay').value =
+                `${seatState[id].zone} – Platz ${seatState[id].label}`;
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const tarif = document.getElementById('bookingTarif').value;
+            const totalEl = document.getElementById('bookingTotal');
+            if (selectedSeatId && tarif) {
+                totalEl.textContent = parseFloat(tarif).toFixed(2).replace('.', ',') + ' €';
+            } else if (tarif) {
+                totalEl.textContent = parseFloat(tarif).toFixed(2).replace('.', ',') + ' € (Platz auswählen)';
+            } else {
+                totalEl.textContent = '0,00 €';
+            }
+        }
+
+        function populateSeats() {
+            document.getElementById('rowA').append(...Array.from({length:10}, (_,i) => createSeat(`A${i+1}`, 'PC-Area Reihe A', `A${i+1}`)));
+            document.getElementById('rowB').append(...Array.from({length:8}, (_,i) => createSeat(`B${i+1}`, 'PC-Area Reihe B (Premium)', `B${i+1}`)));
+            document.getElementById('rowConsole').append(...Array.from({length:6}, (_,i) => createSeat(`C${i+1}`, 'Konsolen-Lounge', `Konsole ${i+1}`)));
+            document.getElementById('rowVR').append(...Array.from({length:4}, (_,i) => createSeat(`V${i+1}`, 'VR-Arena', `VR ${i+1}`)));
+            document.getElementById('rowLounge').append(...Array.from({length:5}, (_,i) => createSeat(`L${i+1}`, 'Lounge', `Lounge ${i+1}`)));
+        }
+        populateSeats();
+
+        document.getElementById('bookingTarif').addEventListener('change', updateTotal);
+        document.getElementById('bookingDate').setAttribute('min', new Date().toISOString().split('T')[0]);
+
+        document.getElementById('confirmBooking').addEventListener('click', () => {
+            if (!selectedSeatId) return alert('Bitte wähle zuerst einen Platz im Sitzplan aus!');
+            if (!document.getElementById('bookingDate').value) return alert('Bitte wähle ein Datum aus!');
+            if (!document.getElementById('bookingTime').value) return alert('Bitte wähle eine Uhrzeit aus!');
+            const seatEl = document.querySelector(`.seat[data-id="${selectedSeatId}"]`);
+            if (seatEl) {
+                seatState[selectedSeatId].state = 'reserved';
+                seatEl.classList.remove('selected');
+                seatEl.classList.add('reserved');
+            }
+            const toast = document.getElementById('bookingToast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3500);
+            selectedSeatId = null;
+            document.getElementById('selectedSeatDisplay').value = 'Kein Platz ausgewählt';
+            document.getElementById('bookingDate').value = '';
+            document.getElementById('bookingTime').value = '';
+            updateTotal();
+        });
+
+        // Gastro-Filter
+        document.querySelectorAll('.menu-cat').forEach(catBtn => {
+            catBtn.addEventListener('click', () => {
+                document.querySelectorAll('.menu-cat').forEach(c => c.classList.remove('active'));
+                catBtn.classList.add('active');
+                const cat = catBtn.dataset.cat;
+                document.querySelectorAll('#menuGrid .menu-item').forEach(item => {
+                    item.classList.toggle('hidden', cat !== 'all' && item.dataset.cat !== cat);
+                });
+            });
+        });
+
+        // Smooth Scroll für Ankerlinks
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offset = 80;
+                    const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: position, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
