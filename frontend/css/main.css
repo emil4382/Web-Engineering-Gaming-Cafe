@@ -1,0 +1,38 @@
+/* =========================================================================
+   PixelForge Gaming Café — Design System entry point
+   -------------------------------------------------------------------------
+   This is the ONLY stylesheet each HTML page links:
+       <link rel="stylesheet" href="css/main.css">
+
+   The cascade is controlled purely through @layer order — no !important
+   anywhere in the system. Layers later in this list win over earlier ones
+   regardless of selector specificity, so "utilities" can always override a
+   "component" without specificity hacks.
+   ========================================================================= */
+
+@layer tokens, base, layout, components, utilities, responsive;
+
+/* --- tokens : the single source of truth (only file with raw hex) --- */
+@import url("tokens.css") layer(tokens);
+
+/* --- base : reset, body defaults, focus ring, reduced-motion guard --- */
+@import url("base.css") layer(base);
+@import url("typography.css") layer(base);
+
+/* --- layout : wrap/container, section rhythm, grid helpers --- */
+@import url("layout.css") layer(layout);
+
+/* --- components : every reusable UI block --- */
+@import url("components.navigation.css") layer(components);
+@import url("components.ui.css") layer(components);
+@import url("components.home.css") layer(components);
+@import url("components.catalog.css") layer(components);
+@import url("components.booking.css") layer(components);
+@import url("components.community.css") layer(components);
+@import url("components.account.css") layer(components);
+
+/* --- utilities : single-purpose helpers, win over components --- */
+@import url("utilities.css") layer(utilities);
+
+/* --- responsive : mobile-first media queries, win over everything --- */
+@import url("responsive.css") layer(responsive);

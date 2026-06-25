@@ -1,0 +1,83 @@
+/* =========================================================================
+   typography.css — heading scale, body, helper text classes
+   -------------------------------------------------------------------------
+   Space Grotesk for display/headings (tight tracking), Inter for body.
+   Sizes use rem; nothing drops below 14px (.875rem) for readability.
+   ========================================================================= */
+
+/* --- heading scale ---------------------------------------------------- */
+h1{ font-size:clamp(2.1rem, 1.4rem + 2.6vw, 3.2rem); }
+h2{ font-size:clamp(1.7rem, 1.25rem + 1.7vw, 2.5rem); }
+h3{ font-size:clamp(1.2rem, 1.05rem + .6vw, 1.45rem); }
+h4{ font-size:1.05rem; }
+h5{ font-size:.95rem; }
+h6{ font-size:.875rem; }
+
+/* --- big marketing display lockup ------------------------------------- */
+.display{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(2.6rem, 1.6rem + 3.6vw, 3.9rem);
+  line-height:1.05;
+  letter-spacing:-.03em;
+}
+
+/* --- body copy -------------------------------------------------------- */
+p{
+  font-family:var(--f-body);
+}
+.lead{
+  font-size:1.12rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* --- helper text colours ---------------------------------------------- */
+.muted{ color:var(--muted); }
+.faint{ color:var(--faint); }
+.text-accent{ color:var(--accent); }
+
+/* --- eyebrow / kicker label (recurs across pages) --------------------- */
+.eyebrow{
+  display:inline-block;
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.82rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+
+/* --- section heading block (.section-title / .section-subtitle) ------- */
+.section-head{
+  max-width:36em;
+}
+.section-title{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(1.9rem, 1.3rem + 2.2vw, 2.6rem);
+  line-height:1.08;
+  letter-spacing:-.02em;
+  margin-top:.4em;
+}
+.section-subtitle{
+  margin-top:.6em;
+  font-size:1.06rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* --- inline emphasis --------------------------------------------------- */
+strong,
+b{
+  font-weight:700;
+  color:var(--text);
+}
+small{
+  font-size:.84rem;
+}
+
+/* --- tabular numbers helper (prices, stats, ranks) -------------------- */
+.tnum{
+  font-variant-numeric:tabular-nums;
+}

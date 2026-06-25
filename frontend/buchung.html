@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buchung · PixelForge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-page="buchung">
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand">PixelForge</a>
+
+    <!-- mobile menu button: JS (#navToggle) toggles aria-expanded + [data-open] on #navMenu -->
+    <button id="navToggle" class="nav-toggle" type="button"
+            aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMenu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <!-- primary links: on each page mark the CURRENT one with class="active" AND aria-current="page" -->
+    <nav id="navMenu" class="nav-links" aria-label="Hauptnavigation">
+      <a href="index.html">Home</a>
+      <a href="preise.html">Preise</a>
+      <a href="ausstattung.html">Ausstattung</a>
+      <a href="spiele.html">Spiele</a>
+      <a href="buchung.html" class="active" aria-current="page">Buchung</a>
+      <a href="turniere.html">Turniere</a>
+      <a href="leaderboards.html">Leaderboards</a>
+      <a href="gastro.html">Gastro</a>
+      <!-- login surfaced only inside the drawer on mobile -->
+      <a href="konto.html" class="nav-login-mobile">Login</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="konto.html" class="nav-login">Login</a>
+      <a href="buchung.html" class="btn btn-primary">Platz buchen</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== SECTION HEADER ===== -->
+  <div class="wrap-wide">
+    <div class="page-head">
+      <p class="eyebrow">Reservierung</p>
+      <h1>Platz buchen</h1>
+      <p>Wähle deinen Gaming-PC direkt im Raumplan unseres Cafés in Berlin-Wedding aus, lege Datum, Uhrzeit und Tarif fest und bestätige deine Reservierung.</p>
+    </div>
+  </div>
+
+  <!-- ===== FLOOR PLAN ===== -->
+  <section class="plan-wrap" aria-labelledby="planHeading">
+    <div class="plan-card">
+      <div class="plan-top">
+        <h2 id="planHeading">Raumplan — PixelForge Halle</h2>
+        <p class="sub">Draufsicht · Maßstab schematisch</p>
+      </div>
+
+      <div class="plan-scroll">
+        <!--
+          #seatMap = the dense LAN-café floor. The desk-rows, the Privat-Boxen
+          row and every .seat <button> are injected by features/buchung.js from
+          SEAT_ZONES + availability. The Eingang / Tresen strip below is a
+          static, non-bookable footer.
+        -->
+        <div class="building">
+          <div id="seatMap" class="floor" role="group" aria-label="Sitzplan zur Auswahl eines PCs">
+            <!-- desk-rows + Privat-Boxen are injected here per zone -->
+          </div>
+
+          <!-- non-bookable entrance / bar strip at the bottom of the hall -->
+          <div class="floor-strip" aria-hidden="true">
+            <span class="fixture entry">Eingang</span>
+            <span class="fixture bar">Tresen / Bar</span>
+          </div>
+        </div><!-- /.building -->
+      </div><!-- /.plan-scroll -->
+
+      <!-- legend -->
+      <div class="legend" aria-hidden="true">
+        <span class="leg"><span class="swatch"></span> Verfügbar</span>
+        <span class="leg"><span class="swatch occupied"></span> Belegt</span>
+        <span class="leg"><span class="swatch reserved"></span> Reserviert</span>
+        <span class="leg"><span class="swatch selected"></span> Ausgewählt</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOOKING PANEL ===== -->
+  <section class="book-wrap" aria-labelledby="bookHeading">
+    <div class="card book-card">
+      <h2 id="bookHeading">Reservierung</h2>
+      <p class="lead">Wähle einen Platz im Raumplan und bestätige die Details deiner Buchung.</p>
+
+      <form id="bookingForm" novalidate>
+        <div class="field">
+          <label for="selectedSeat">Ausgewählter Platz</label>
+          <input id="selectedSeat" name="selectedSeat" type="text"
+                 placeholder="Noch kein Platz gewählt" readonly>
+          <p class="field-error" id="seatError" role="alert"></p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="bookingDate">Datum</label>
+            <input id="bookingDate" name="date" type="date" required>
+            <p class="field-error" id="dateError" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="bookingTime">Uhrzeit</label>
+            <select id="bookingTime" name="time" required>
+              <option value="" selected disabled>Bitte wählen</option>
+            </select>
+            <p class="field-error" id="timeError" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="bookingTariff">Tarif</label>
+          <select id="bookingTariff" name="tariff" required></select>
+          <p class="field-error" id="tariffError" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label for="bookingName">Name</label>
+          <input id="bookingName" name="name" type="text"
+                 autocomplete="name" placeholder="Vor- und Nachname" required>
+          <p class="field-error" id="nameError" role="alert"></p>
+        </div>
+
+        <div class="summary" id="bookingSummary">
+          <span class="lab">Summe</span>
+          <span class="val">–</span>
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit">Reservierung bestätigen</button>
+        <p class="note">Kostenlose Stornierung bis 2 Stunden vor Beginn.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== MEINE RESERVIERUNGEN ===== -->
+  <section class="book-wrap" id="myBookingsSection" aria-labelledby="myBookingsHeading" hidden>
+    <div class="card">
+      <h2 id="myBookingsHeading">Meine Reservierungen</h2>
+      <p class="lead">Lokal auf diesem Gerät gespeicherte Buchungen.</p>
+      <ul id="myBookingsList"></ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- toast notifications -->
+<div id="toastRegion" class="toast-region" role="status" aria-live="polite"></div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand">PixelForge</a>
+        <p class="tagline">Das Gaming- und Internet-Café in Berlin-Wedding. High-End-Hardware, 2.500 Spiele und eine Community, die niemanden allein zocken lässt.</p>
+      </div>
+      <div>
+        <h4>Seiten</h4>
+        <ul>
+          <li><a href="preise.html">Preise</a></li>
+          <li><a href="ausstattung.html">Ausstattung</a></li>
+          <li><a href="spiele.html">Spiele</a></li>
+          <li><a href="buchung.html">Buchung</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="turniere.html">Turniere</a></li>
+          <li><a href="leaderboards.html">Leaderboards</a></li>
+          <li><a href="gastro.html">Gastro</a></li>
+          <li><a href="konto.html">Mein Konto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="agb.html">AGB</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PixelForge Gaming Café</span>
+      <span>Müllerstraße 12 · 13353 Berlin-Wedding</span>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

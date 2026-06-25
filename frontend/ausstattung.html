@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ausstattung · PixelForge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-page="ausstattung">
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a href="index.html" class="brand">PixelForge</a>
+
+        <button id="navToggle" class="nav-toggle" type="button"
+                aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMenu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+
+        <nav id="navMenu" class="nav-links" aria-label="Hauptnavigation">
+          <a href="index.html">Home</a>
+          <a href="preise.html">Preise</a>
+          <a href="ausstattung.html" class="active" aria-current="page">Ausstattung</a>
+          <a href="spiele.html">Spiele</a>
+          <a href="buchung.html">Buchung</a>
+          <a href="turniere.html">Turniere</a>
+          <a href="leaderboards.html">Leaderboards</a>
+          <a href="gastro.html">Gastro</a>
+          <a href="konto.html" class="nav-login-mobile">Login</a>
+        </nav>
+
+        <div class="nav-right">
+          <a href="konto.html" class="nav-login">Login</a>
+          <a href="buchung.html" class="btn btn-primary">Platz buchen</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="wrap">
+        <div class="page-head">
+          <p class="eyebrow">Hardware</p>
+          <h1>Ausstattung</h1>
+          <p>Kompromisslose High-End-Hardware an jedem einzelnen Platz – vom Prozessor bis zur Glasfaser-Leitung. Keine Tier-Listen, keine Budget-Plätze: jeder Gaming-PC bei PixelForge ist ein Top-Setup.</p>
+        </div>
+
+        <section class="section section--tight tabs" aria-label="Hardware-Kategorien">
+          <div id="specTabs" class="tablist" role="tablist" aria-label="Hardware-Kategorien">
+            <button class="tab" role="tab" id="tab-pcs" aria-controls="panel-pcs" aria-selected="true" tabindex="0">Gaming-PCs</button>
+            <button class="tab" role="tab" id="tab-peripherie" aria-controls="panel-peripherie" aria-selected="false" tabindex="-1">Peripherie</button>
+            <button class="tab" role="tab" id="tab-netzwerk" aria-controls="panel-netzwerk" aria-selected="false" tabindex="-1">Netzwerk &amp; Komfort</button>
+          </div>
+
+          <div id="panel-pcs" class="tabpanel" role="tabpanel" aria-labelledby="tab-pcs" tabindex="0">
+            <h2 class="visually-hidden">Gaming-PCs</h2>
+            <div class="spec-grid">
+              <div class="spec">
+                <div class="spec-k">CPU</div>
+                <div class="spec-v">Intel Core i9-14900K</div>
+                <div class="spec-note">Alternativ AMD Ryzen 9 7950X3D · 24 Kerne, bis 6,0 GHz</div>
+              </div>
+              <div class="spec">
+                <div class="spec-k">GPU</div>
+                <div class="spec-v">NVIDIA RTX 4090</div>
+                <div class="spec-note">24 GB GDDR6X · alternativ Radeon RX 7900 XTX</div>
+              </div>
+              <div class="spec">
+                <div class="spec-k">RAM</div>
+                <div class="spec-v">64 GB DDR5</div>
+                <div class="spec-note">Corsair Dominator · 6000 MHz</div>
+              </div>
+              <div class="spec">
+                <div class="spec-k">Speicher</div>
+                <div class="spec-v">2 TB NVMe</div>
+                <div class="spec-note">PCIe 5.0 SSD · bis 12 GB/s Lesegeschwindigkeit</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="panel-peripherie" class="tabpanel" role="tabpanel" aria-labelledby="tab-peripherie" tabindex="0" hidden>
+            <h2 class="visually-hidden">Peripherie</h2>
+            <div class="spec-grid">
+              <div class="spec">
+                <div class="spec-k">Monitor</div>
+                <div class="spec-v">ASUS ROG Swift</div>
+                <div class="spec-note">27" OLED · 360 Hz · 1 ms Reaktionszeit</div>
+              </div>
+              <div class="spec">
+                <div class="spec-k">Peripherie</div>
+                <div class="spec-v">Razer</div>
+                <div class="spec-note">Huntsman V3 Tastatur · DeathAdder V3 Pro Maus</div>
+              </div>
+              <div class="spec">
+                <div class="spec-k">Audio</div>
+                <div class="spec-v">Beyerdynamic DT 990 Pro</div>
+                <div class="spec-note">Offener Studiokopfhörer · dedizierter DAC/AMP</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="panel-netzwerk" class="tabpanel" role="tabpanel" aria-labelledby="tab-netzwerk" tabindex="0" hidden>
+            <h2 class="visually-hidden">Netzwerk &amp; Komfort</h2>
+            <div class="spec-grid">
+              <div class="spec">
+                <div class="spec-k">Netzwerk</div>
+                <div class="spec-v">10 Gbit/s</div>
+                <div class="spec-note">Glasfaser-Anbindung · unter 1 ms Latenz</div>
+              </div>
+              <div class="spec">
+                <div class="spec-k">Sitzplatz</div>
+                <div class="spec-v">Ergonomischer Gaming-Stuhl</div>
+                <div class="spec-note">Verstellbare Lordosenstütze · höhenverstellbarer Tisch</div>
+              </div>
+              <div class="spec">
+                <div class="spec-k">Stromversorgung</div>
+                <div class="spec-v">USV-gesichert</div>
+                <div class="spec-note">Unterbrechungsfreie Stromversorgung an jedem Platz</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <a href="index.html" class="brand">PixelForge</a>
+            <p class="tagline">Das Gaming- und Internet-Café in Berlin-Wedding. High-End-Hardware, 2.500 Spiele und eine Community, die niemanden allein zocken lässt.</p>
+          </div>
+          <div>
+            <h4>Seiten</h4>
+            <ul>
+              <li><a href="preise.html">Preise</a></li>
+              <li><a href="ausstattung.html">Ausstattung</a></li>
+              <li><a href="spiele.html">Spiele</a></li>
+              <li><a href="buchung.html">Buchung</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Community</h4>
+            <ul>
+              <li><a href="turniere.html">Turniere</a></li>
+              <li><a href="leaderboards.html">Leaderboards</a></li>
+              <li><a href="gastro.html">Gastro</a></li>
+              <li><a href="konto.html">Mein Konto</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Rechtliches</h4>
+            <ul>
+              <li><a href="agb.html">AGB</a></li>
+              <li><a href="datenschutz.html">Datenschutz</a></li>
+              <li><a href="impressum.html">Impressum</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 PixelForge Gaming Café</span>
+          <span>Müllerstraße 12 · 13353 Berlin-Wedding</span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

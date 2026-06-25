@@ -1,0 +1,359 @@
+/* =========================================================================
+   components.ui.css — buttons, cards, tags, badges, forms, errors, toast
+   ========================================================================= */
+
+/* =========================================================================
+   BUTTONS
+   ========================================================================= */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5em;
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:1rem;
+  line-height:1;
+  padding:.8em 1.5em;
+  border-radius:var(--r);
+  border:1.5px solid transparent;
+  cursor:pointer;
+  transition:.18s ease;
+  min-height:48px;
+  white-space:nowrap;
+  text-align:center;
+}
+.btn-primary{
+  background:var(--accent);
+  color:var(--accent-ink);
+}
+.btn-primary:hover{
+  background:var(--accent-soft);
+  color:var(--accent-ink);
+  transform:translateY(-1px);
+}
+.btn-outline{
+  background:transparent;
+  border-color:var(--line-2);
+  color:var(--text);
+}
+.btn-outline:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+.btn-ghost{
+  background:transparent;
+  border-color:transparent;
+  color:var(--muted);
+  min-height:40px;
+  padding:.6em 1em;
+}
+.btn-ghost:hover{
+  color:var(--text);
+  background:var(--surface-2);
+}
+.btn-danger{
+  background:transparent;
+  border-color:var(--danger);
+  color:var(--danger);
+}
+.btn-danger:hover{
+  background:var(--danger);
+  color:var(--accent-ink);
+}
+.btn-block{
+  width:100%;
+}
+.btn-sm{
+  min-height:38px;
+  padding:.55em 1em;
+  font-size:.9rem;
+}
+.btn[disabled],
+.btn[aria-disabled="true"]{
+  opacity:.42;
+  cursor:not-allowed;
+  pointer-events:none;
+  transform:none;
+}
+
+/* =========================================================================
+   CARD
+   ========================================================================= */
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:26px;
+}
+.card-pad-lg{ padding:30px 32px; }
+.card-flush{ padding:0; overflow:hidden; }
+.card-hover{
+  transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.card-hover:hover{
+  border-color:var(--line-2);
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
+}
+
+/* =========================================================================
+   TAG — small inline label (e.g. "Turnier", genre, kicker)
+   ========================================================================= */
+.tag{
+  display:inline-flex;
+  align-items:center;
+  gap:.4em;
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.72rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--muted);
+  background:var(--surface-2);
+  border:1px solid var(--line-2);
+  border-radius:8px;
+  padding:.34em .7em;
+}
+.tag-accent{
+  color:var(--accent-ink);
+  background:var(--accent);
+  border-color:var(--accent);
+}
+.tag-outline{
+  background:transparent;
+  color:var(--accent);
+  border-color:var(--accent);
+}
+
+/* a kicker label used inside cards/heroes */
+.kicker{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.74rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+
+/* =========================================================================
+   BADGE — status pill (ok / warn / danger). --badge-color drives the look,
+   so variants need no new hex.
+   ========================================================================= */
+.badge{
+  --badge-color:var(--muted);
+  display:inline-flex;
+  align-items:center;
+  gap:.45em;
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.74rem;
+  letter-spacing:.03em;
+  padding:.32em .7em;
+  border-radius:999px;
+  color:var(--badge-color);
+  background:color-mix(in srgb, var(--badge-color) 14%, transparent);
+  border:1px solid color-mix(in srgb, var(--badge-color) 40%, transparent);
+}
+.badge::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--badge-color);
+  flex:none;
+}
+.badge-ok{ --badge-color:var(--ok); }
+.badge-warn{ --badge-color:var(--warn); }
+.badge-danger{ --badge-color:var(--danger); }
+.badge-accent{ --badge-color:var(--accent); }
+.badge-neutral{ --badge-color:var(--muted); }
+/* dot-less variant for plain labels */
+.badge-plain::before{ display:none; }
+
+/* =========================================================================
+   FORM CONTROLS
+   ========================================================================= */
+.field{
+  margin-bottom:18px;
+}
+.field-row{
+  display:flex;
+  gap:16px;
+}
+.field-row .field{
+  flex:1;
+}
+label,
+.label{
+  display:block;
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.82rem;
+  letter-spacing:.04em;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+.label-req::after{
+  content:" *";
+  color:var(--accent);
+}
+
+input,
+select,
+textarea{
+  font-family:var(--f-body);
+  font-size:1rem;
+  color:var(--text);
+  background:var(--surface-2);
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  padding:.75em 1em;
+  width:100%;
+  transition:border-color .16s ease, box-shadow .16s ease;
+}
+textarea{
+  min-height:120px;
+  resize:vertical;
+  line-height:1.6;
+}
+input::placeholder,
+textarea::placeholder{
+  color:var(--faint);
+}
+input:focus,
+select:focus,
+textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+}
+input[readonly]{
+  color:var(--text);
+  font-weight:600;
+  background:var(--surface);
+  border-color:var(--line-2);
+  cursor:default;
+}
+input:disabled,
+select:disabled,
+textarea:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+/* native select arrow tint via accent-color where supported */
+select{
+  accent-color:var(--accent);
+}
+input[type="checkbox"],
+input[type="radio"]{
+  width:auto;
+  accent-color:var(--accent);
+}
+
+/* a small helper hint under a field */
+.field-hint{
+  margin-top:6px;
+  font-size:.82rem;
+  color:var(--faint);
+}
+
+/* --- inline validation: aria-invalid + field-error[role=alert] -------- */
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"]{
+  border-color:var(--danger);
+}
+input[aria-invalid="true"]:focus,
+select[aria-invalid="true"]:focus,
+textarea[aria-invalid="true"]:focus{
+  border-color:var(--danger);
+  box-shadow:0 0 0 2.5px color-mix(in srgb, var(--danger) 30%, transparent);
+}
+.field-error{
+  display:flex;
+  align-items:center;
+  gap:.5em;
+  margin-top:8px;
+  font-size:.84rem;
+  font-weight:500;
+  color:var(--danger);
+}
+.field-error::before{
+  content:"!";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  width:16px;
+  height:16px;
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:.7rem;
+  color:var(--accent-ink);
+  background:var(--danger);
+  border-radius:50%;
+}
+/* hide an empty error node so layout doesn't jump */
+.field-error:empty{
+  display:none;
+}
+
+/* a form-level alert (e.g. wrong credentials) */
+.form-alert{
+  display:flex;
+  align-items:center;
+  gap:.6em;
+  padding:.85em 1em;
+  margin-bottom:18px;
+  border-radius:12px;
+  font-size:.9rem;
+  color:var(--danger);
+  background:color-mix(in srgb, var(--danger) 12%, transparent);
+  border:1px solid color-mix(in srgb, var(--danger) 40%, transparent);
+}
+.form-alert-ok{
+  color:var(--ok);
+  background:color-mix(in srgb, var(--ok) 12%, transparent);
+  border-color:color-mix(in srgb, var(--ok) 40%, transparent);
+}
+
+/* =========================================================================
+   TOAST — role="status" live region, fixed bottom-right
+   ========================================================================= */
+.toast-region{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:80;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  width:min(360px, calc(100vw - 40px));
+  pointer-events:none;
+}
+.toast{
+  --toast-color:var(--accent);
+  pointer-events:auto;
+  display:flex;
+  align-items:flex-start;
+  gap:.7em;
+  padding:14px 16px;
+  border-radius:14px;
+  background:var(--surface);
+  border:1px solid var(--line-2);
+  border-left:3px solid var(--toast-color);
+  box-shadow:var(--shadow-lg);
+  color:var(--text);
+  font-size:.92rem;
+  animation:toast-in .22s ease;
+}
+.toast-ok{ --toast-color:var(--ok); }
+.toast-warn{ --toast-color:var(--warn); }
+.toast-danger{ --toast-color:var(--danger); }
+.toast strong{
+  font-family:var(--f-display);
+}
+@keyframes toast-in{
+  from{ opacity:0; transform:translateY(10px); }
+  to{ opacity:1; transform:translateY(0); }
+}

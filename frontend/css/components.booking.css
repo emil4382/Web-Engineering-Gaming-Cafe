@@ -1,0 +1,344 @@
+/* =========================================================================
+   components.booking.css — dense LAN-café floor plan + booking panel
+   -------------------------------------------------------------------------
+   The floor plan is a flex/grid top-down view that grows with its content
+   (no absolute pixel coordinates, minimal empty space):
+     .building   -> outer hall outline; stacks .floor + the Eingang/Bar strip
+     .floor      -> the dense vertical stack of desk-rows (#seatMap)
+     .desk-row   -> one labelled row: .row-label + .desks (or .boxes)
+     .desks      -> two .desk groups of four, split by an aisle gap
+     .desk       -> a table surface under a group of seats
+     .box        -> a Privat-Box (2 seats) in the compact .box-row
+     .seat       -> a <button> in one of four states
+   Seat states use surface tints + --accent for "selected" only. No neon.
+   ========================================================================= */
+
+/* ---- floor-plan shell ------------------------------------------------ */
+.plan-wrap{
+  max-width:1380px;
+  margin-inline:auto;
+  padding:14px 36px 0;
+}
+.plan-card{
+  background:var(--bg-2);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+.plan-top{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  margin-bottom:22px;
+  flex-wrap:wrap;
+  gap:14px;
+}
+.plan-top h2{
+  font-size:1.4rem;
+}
+.plan-top .sub{
+  color:var(--faint);
+  font-size:.9rem;
+  font-family:var(--f-display);
+  font-weight:500;
+  letter-spacing:.04em;
+}
+
+/* horizontal scroll wrapper so the dense plan never overflows on mobile */
+.plan-scroll{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* ---- building outline — grows with its content, minimal empty space -- */
+.building{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-width:560px;            /* keeps eight seats per row readable; scrolls on mobile */
+  padding:16px;
+  border:2px solid var(--line-2);
+  border-radius:12px;
+  background:var(--surface);
+}
+
+/* ---- the dense vertical stack of desk-rows (#seatMap) ---------------- */
+.floor{
+  display:flex;
+  flex-direction:column;
+  gap:8px;                    /* tight, consistent vertical rhythm → many rows */
+}
+
+/* ---- one labelled desk-row ------------------------------------------- */
+.desk-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:6px 10px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--bg-2);
+}
+.desk-row.is-premium{
+  border-color:color-mix(in srgb, var(--accent) 40%, var(--line));
+}
+.row-label{
+  flex:0 0 120px;
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.72rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+.desk-row.is-premium .row-label{
+  color:var(--accent-soft);
+}
+
+/* ---- .desks = two desks of four with an aisle gap between them -------- */
+.desks{
+  display:flex;
+  align-items:center;
+  gap:28px;                   /* the aisle: reads as two tables, not one bar */
+  flex:1 1 auto;
+}
+.desk{
+  display:flex;
+  gap:6px;
+  padding:6px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--surface-2);
+}
+
+/* ---- Privat-Boxen : a compact row of small boxes --------------------- */
+.box-row .boxes{
+  display:flex;
+  gap:14px;
+  flex:1 1 auto;
+}
+.box{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding:6px 8px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--surface-2);
+}
+.box-tag{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.58rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+.box-seats{
+  display:flex;
+  gap:6px;
+}
+
+/* ---- Eingang / Tresen strip (non-bookable footer) -------------------- */
+.floor-strip{
+  display:flex;
+  gap:10px;
+}
+.fixture{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:10px 14px;
+  border-radius:8px;
+  border:1px solid var(--line-2);
+  background:var(--surface-2);
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.66rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+.fixture.bar{
+  flex:1 1 auto;
+}
+.fixture.entry{
+  flex:0 0 auto;
+  background:transparent;
+  border:2px dashed var(--accent);
+  color:var(--accent-soft);
+}
+
+/* =========================================================================
+   SEAT — <button> with four states. The base is "Verfügbar".
+   --seat-color is the single knob for the selected accent.
+   ========================================================================= */
+.seat{
+  --seat-color:var(--accent);
+  width:46px;
+  height:38px;
+  min-width:44px;             /* keep tap target >= 44px (responsive may grow height) */
+  border-radius:8px;
+  border:1px solid var(--line-2);
+  background:var(--surface);
+  color:var(--muted);
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.72rem;
+  letter-spacing:.02em;
+  cursor:pointer;
+  transition:transform .14s ease, border-color .14s ease, background .14s ease, color .14s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1;
+}
+.seat:hover{
+  transform:translateY(-2px) scale(1.04);
+  border-color:var(--seat-color);
+  color:var(--text);
+}
+
+/* Belegt / occupied */
+.seat.occupied{
+  background:var(--surface-2);
+  border-color:var(--line);
+  color:var(--faint);
+  opacity:.7;
+  cursor:not-allowed;
+}
+.seat.occupied:hover{
+  transform:none;
+  border-color:var(--line);
+  color:var(--faint);
+}
+
+/* Reserviert / reserved (dashed + hatch) */
+.seat.reserved{
+  background:var(--surface-2);
+  color:var(--muted);
+  border:1px dashed var(--line-2);
+  background-image:repeating-linear-gradient(45deg, transparent 0 5px, rgba(155,161,170,.10) 5px 10px);
+  cursor:not-allowed;
+}
+.seat.reserved:hover{
+  transform:none;
+  border-color:var(--line-2);
+  color:var(--muted);
+}
+
+/* Ausgewählt / selected (accent fill) — JS also sets aria-pressed="true" */
+.seat.selected,
+.seat[aria-pressed="true"]{
+  background:var(--seat-color);
+  border-color:var(--seat-color);
+  color:var(--accent-ink);
+  box-shadow:0 6px 16px color-mix(in srgb, var(--seat-color) 28%, transparent);
+}
+.seat.selected:hover,
+.seat[aria-pressed="true"]:hover{
+  transform:translateY(-2px) scale(1.04);
+  background:var(--accent-soft);
+  color:var(--accent-ink);
+}
+
+/* =========================================================================
+   LEGEND
+   ========================================================================= */
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:26px;
+  margin-top:24px;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+}
+.leg{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:.9rem;
+  color:var(--muted);
+}
+.leg .swatch{
+  width:26px;
+  height:20px;
+  border-radius:6px;
+  border:1px solid var(--line-2);
+  background:var(--surface);
+}
+.leg .swatch.occupied{
+  background:var(--surface-2);
+  border-color:var(--line);
+  opacity:.7;
+}
+.leg .swatch.reserved{
+  background:var(--surface-2);
+  border:1px dashed var(--line-2);
+  background-image:repeating-linear-gradient(45deg, transparent 0 4px, rgba(155,161,170,.10) 4px 8px);
+}
+.leg .swatch.selected{
+  background:var(--accent);
+  border-color:var(--accent);
+}
+
+/* =========================================================================
+   BOOKING PANEL / FORM
+   ========================================================================= */
+.book-wrap{
+  max-width:520px;
+  margin:42px auto 0;
+  padding:0 28px;
+}
+.book-card{
+  box-shadow:var(--shadow-lg);
+}
+.book-card h3{
+  font-size:1.5rem;
+  margin-bottom:6px;
+}
+.book-card .lead{
+  color:var(--muted);
+  font-size:.95rem;
+  margin-bottom:24px;
+}
+
+/* price summary block */
+.summary{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  margin:22px 0;
+  padding:16px 18px;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+.summary .lab{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.9rem;
+  color:var(--muted);
+  letter-spacing:.03em;
+}
+.summary .val{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:1.32rem;
+  color:var(--text);
+}
+.summary .val em{
+  font-style:normal;
+  color:var(--accent);
+}
+.book-card .btn{
+  width:100%;
+}
+.note{
+  text-align:center;
+  color:var(--faint);
+  font-size:.82rem;
+  margin-top:14px;
+}

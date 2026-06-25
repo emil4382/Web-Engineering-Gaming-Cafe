@@ -1,0 +1,307 @@
+/* =========================================================================
+   responsive.css — mobile-first media queries
+   -------------------------------------------------------------------------
+   This layer is imported LAST, so it always wins over component defaults.
+   Strategy: the component files are authored at the desktop reference; here
+   we progressively SIMPLIFY downward at the breakpoints and re-expand up.
+   Breakpoints: <=640 (phone), <=960 (tablet), <=1200 (small desktop).
+   Verified mentally at 375px: no horizontal overflow (plan scrolls, grids
+   collapse to 1 col, seats stay >=44px, photos are width:100%).
+   ========================================================================= */
+
+/* =========================================================================
+   <= 1200px — small desktop / large tablet
+   ========================================================================= */
+@media (max-width:1200px){
+  .game-grid{
+    grid-template-columns:repeat(3, 1fr);
+  }
+  .footer-grid{
+    grid-template-columns:1.4fr 1fr 1fr;
+  }
+  /* the wide wrap loses some side padding */
+  .wrap-wide,
+  .plan-wrap,
+  .page-head{
+    padding-inline:28px;
+  }
+}
+
+/* =========================================================================
+   <= 960px — tablet : two-up grids, hero/band stack, nav drawer appears
+   ========================================================================= */
+@media (max-width:960px){
+
+  /* ---- NAV: switch to mobile drawer ---- */
+  .nav-toggle{
+    display:flex;
+    order:3;                 /* sits at the far right after brand */
+  }
+  .nav-right{
+    /* keep the CTA visible next to the toggle, drop the text login link */
+    margin-left:auto;
+    gap:12px;
+  }
+  .nav-right .nav-login{
+    display:none;            /* login moves into the drawer */
+  }
+  .nav-inner{
+    gap:16px;
+    height:64px;
+  }
+
+  /* the link list becomes a slide-down drawer panel */
+  .nav-links{
+    position:fixed;
+    top:64px;
+    left:0;
+    right:0;
+    z-index:45;
+    flex-direction:column;
+    align-items:stretch;
+    gap:2px;
+    margin:0;
+    padding:14px 20px 22px;
+    background:var(--bg-2);
+    border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow-lg);
+    transform:translateY(-12px);
+    opacity:0;
+    visibility:hidden;
+    transition:transform .2s ease, opacity .2s ease, visibility .2s ease;
+    max-height:calc(100dvh - 64px);
+    overflow-y:auto;
+  }
+  .nav-links[data-open]{
+    transform:translateY(0);
+    opacity:1;
+    visibility:visible;
+  }
+  .nav-links a{
+    padding:14px 8px;
+    font-size:1.02rem;
+    border-radius:10px;
+  }
+  .nav-links a:hover{
+    background:var(--surface-2);
+  }
+  /* the desktop underline indicator doesn't fit a stacked drawer */
+  .nav-links a.active::after,
+  .nav-links a[aria-current="page"]::after{
+    display:none;
+  }
+  .nav-links a.active,
+  .nav-links a[aria-current="page"]{
+    color:var(--accent);
+    background:var(--surface-2);
+  }
+  /* surface the login link inside the drawer */
+  .nav-links .nav-login-mobile{
+    display:block;
+  }
+
+  /* ---- HERO + BAND stack ---- */
+  .hero-grid,
+  .band-grid{
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+  .hero{
+    padding:48px 0 40px;
+  }
+  .hero-frame img{
+    height:380px;
+  }
+  /* photo appears under copy on the band, above on hero (source order ok) */
+  .band-photo img{
+    height:300px;
+  }
+
+  /* ---- two/three-up grids relax ---- */
+  .tariffs{
+    grid-template-columns:1fr;
+    max-width:440px;
+    margin-inline:auto;
+  }
+  .grid-3,
+  .grid-4{
+    grid-template-columns:repeat(2, 1fr);
+  }
+  .game-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+
+  /* ---- account splits into one column ---- */
+  .account-grid{
+    grid-template-columns:1fr;
+  }
+
+  /* ---- leaderboard drops the wins column to fit ---- */
+  .lb-head,
+  .lb-row{
+    grid-template-columns:48px 1fr 96px;
+  }
+  .lb-head .col-wins,
+  .lb-wins{
+    display:none;
+  }
+
+  /* ---- floor plan: allow horizontal scroll, keep readable ---- */
+  .plan-card{
+    padding:20px;
+  }
+}
+
+/* =========================================================================
+   <= 640px — phone : everything collapses to a single column
+   ========================================================================= */
+@media (max-width:640px){
+
+  /* tighter gutters everywhere */
+  .wrap,
+  .container{
+    padding-inline:18px;
+  }
+  .wrap-wide,
+  .plan-wrap,
+  .page-head{
+    padding-inline:18px;
+  }
+
+  /* ---- typography eases down ---- */
+  .hero h1{
+    font-size:2.3rem;
+  }
+  .hero .sub{
+    font-size:1.05rem;
+  }
+
+  /* ---- single-column grids ---- */
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .game-grid,
+  .menu-grid,
+  .tournament-list,
+  .facts{
+    grid-template-columns:1fr;
+  }
+  .tcard-meta{
+    grid-template-columns:1fr 1fr;
+  }
+
+  /* ---- buttons go full width in tight stacks ---- */
+  .hero-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .hero-actions .btn,
+  .error-actions .btn{
+    width:100%;
+  }
+
+  /* ---- photos full width, shorter ---- */
+  .hero-frame img{
+    height:300px;
+  }
+  .band-photo img{
+    height:240px;
+  }
+
+  /* ---- stat row wraps cleanly, drop separator dots ---- */
+  .stat-row{
+    gap:10px 14px;
+  }
+
+  /* ---- forms: stacked rows ---- */
+  .field-row{
+    flex-direction:column;
+    gap:0;
+  }
+
+  /* ---- booking floor plan stacks the panel; seats stay tappable ---- */
+  .building{
+    height:560px;
+    min-width:760px;       /* scrolls inside .plan-scroll, never overflows body */
+  }
+  .seat{
+    /* keep tap targets comfortable on touch */
+    min-width:44px;
+    min-height:44px;
+    height:44px;
+    font-size:.74rem;
+  }
+  .desk{
+    gap:8px;
+  }
+  .book-wrap{
+    padding-inline:18px;
+  }
+  .summary{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+  }
+
+  /* ---- legend wraps to rows ---- */
+  .legend{
+    gap:14px 22px;
+  }
+
+  /* ---- leaderboard: drop points header label weight, keep 3 cols ---- */
+  .lb-head,
+  .lb-row{
+    grid-template-columns:44px 1fr 84px;
+    padding-inline:16px;
+    gap:12px;
+  }
+
+  /* ---- admin + any wide table scroll horizontally (wrapper handles it) - */
+
+  /* ---- footer single column ---- */
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  .footer > .wrap > .footer-grid > div:first-child{
+    grid-column:1 / -1;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  /* ---- toast spans the bottom ---- */
+  .toast-region{
+    left:12px;
+    right:12px;
+    bottom:12px;
+    width:auto;
+  }
+
+  /* ---- section rhythm tightens ---- */
+  .section{
+    padding-block:40px;
+  }
+}
+
+/* =========================================================================
+   very small phones (<= 380px) — guard against the 4-up footer overflowing
+   ========================================================================= */
+@media (max-width:380px){
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+  .tcard-meta{
+    grid-template-columns:1fr;
+  }
+}
+
+/* =========================================================================
+   >= 961px — ensure the mobile-only drawer helper stays hidden on desktop
+   ========================================================================= */
+@media (min-width:961px){
+  .nav-links .nav-login-mobile{
+    display:none;
+  }
+}

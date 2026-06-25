@@ -1,0 +1,254 @@
+/* =========================================================================
+   components.home.css — hero, stat row, pricing tariffs, location band
+   ========================================================================= */
+
+/* =========================================================================
+   HERO — split text + photo
+   ========================================================================= */
+.hero{
+  padding:78px 0 64px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:56px;
+  align-items:center;
+}
+.hero h1{
+  font-size:clamp(2.6rem, 1.7rem + 3.4vw, 3.9rem);
+  letter-spacing:-.03em;
+}
+.hero .sub{
+  margin-top:22px;
+  font-size:1.18rem;
+  color:var(--muted);
+  max-width:30em;
+}
+.hero-actions{
+  display:flex;
+  gap:14px;
+  margin-top:34px;
+  flex-wrap:wrap;
+}
+
+/* ---- stat row (40+ PCs · 2.500+ Spiele · 24/7) ----------------------- */
+.stat-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:34px;
+  flex-wrap:wrap;
+  font-family:var(--f-display);
+  font-weight:500;
+  font-size:.96rem;
+  color:var(--muted);
+}
+.stat-row strong{
+  color:var(--text);
+  font-weight:700;
+}
+.stat-row .dot{
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--line-2);
+}
+
+/* ---- hero photo frame with overlay tag ------------------------------- */
+.hero-frame{
+  position:relative;
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-lg);
+}
+.hero-frame img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+}
+.hero-frame .tag{
+  position:absolute;
+  left:18px;
+  bottom:18px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:color-mix(in srgb, var(--bg) 78%, transparent);
+  border:1px solid var(--line-2);
+  border-radius:999px;
+  padding:7px 14px;
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.82rem;
+  color:var(--text);
+  -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);
+}
+.hero-frame .tag span{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--accent);
+}
+
+/* =========================================================================
+   LOCATION / INFO BAND — photo + copy + fact tiles
+   ========================================================================= */
+.band{
+  padding:56px 0;
+  border-top:1px solid var(--line);
+}
+.band-grid{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:54px;
+  align-items:center;
+}
+.band-photo{
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.band-photo img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+}
+.band h2{
+  font-size:clamp(1.9rem, 1.3rem + 2.2vw, 2.5rem);
+  margin-top:14px;
+}
+.band p.lead{
+  margin-top:18px;
+  font-size:1.06rem;
+  color:var(--muted);
+  max-width:34em;
+}
+
+/* fact tiles grid (1 Gbit/s, 2 Min, Lounge, 24/7) */
+.facts{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:14px;
+  margin-top:30px;
+}
+.fact{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  padding:18px 20px;
+}
+.fact .n{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:1.5rem;
+  color:var(--text);
+}
+.fact .l{
+  font-size:.88rem;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+/* =========================================================================
+   PRICING — tariff cards (+ featured "pop")
+   Used on the home teaser and the full Preise page.
+   ========================================================================= */
+.pricing{
+  padding:64px 0 76px;
+  border-top:1px solid var(--line);
+}
+.sec-head{
+  max-width:34em;
+}
+.sec-head h2{
+  font-size:clamp(1.9rem, 1.3rem + 2.4vw, 2.6rem);
+  margin-top:12px;
+}
+.sec-head p{
+  margin-top:14px;
+  font-size:1.06rem;
+  color:var(--muted);
+}
+.tariffs{
+  display:grid;
+  /* auto-fit so the Home teaser (3 cards) fills the row AND the Preise page
+     (4 cards) shows all four side by side on desktop. */
+  grid-template-columns:repeat(auto-fit, minmax(232px, 1fr));
+  gap:22px;
+  margin-top:44px;
+  align-items:stretch;
+}
+.tariff{
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+.tariff.pop{
+  border-color:var(--accent);
+  box-shadow:var(--shadow);
+}
+.tariff .pop-badge{
+  position:absolute;
+  top:-13px;
+  left:26px;
+  background:var(--accent);
+  color:var(--accent-ink);
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:.74rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:5px 12px;
+  border-radius:999px;
+}
+.tariff .t-name{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:1.05rem;
+  color:var(--muted);
+}
+.tariff .t-price{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:2.5rem;
+  color:var(--text);
+  margin-top:8px;
+  letter-spacing:-.02em;
+}
+.tariff .t-price span{
+  font-size:1rem;
+  font-weight:500;
+  color:var(--faint);
+}
+.tariff .t-desc{
+  font-size:.92rem;
+  color:var(--muted);
+  margin-top:6px;
+}
+.tariff ul{
+  margin:22px 0 26px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.tariff li{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  font-size:.95rem;
+  color:var(--text);
+}
+.tariff li .ic{
+  flex:none;
+  width:18px;
+  height:18px;
+  margin-top:3px;
+  color:var(--accent);
+}
+.tariff .btn{
+  width:100%;
+  margin-top:auto;
+}

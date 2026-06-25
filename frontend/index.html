@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home · PixelForge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand">PixelForge</a>
+
+      <button id="navToggle" class="nav-toggle" type="button"
+              aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMenu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <nav id="navMenu" class="nav-links" aria-label="Hauptnavigation">
+        <a href="index.html" class="active" aria-current="page">Home</a>
+        <a href="preise.html">Preise</a>
+        <a href="ausstattung.html">Ausstattung</a>
+        <a href="spiele.html">Spiele</a>
+        <a href="buchung.html">Buchung</a>
+        <a href="turniere.html">Turniere</a>
+        <a href="leaderboards.html">Leaderboards</a>
+        <a href="gastro.html">Gastro</a>
+        <a href="konto.html" class="nav-login-mobile">Login</a>
+      </nav>
+
+      <div class="nav-right">
+        <a href="konto.html" class="nav-login">Login</a>
+        <a href="buchung.html" class="btn btn-primary">Platz buchen</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" data-reveal>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Gaming-Café · Berlin-Wedding</p>
+          <h1>Dein Gaming-Café<br>in Berlin-Wedding.</h1>
+          <p class="sub">40 High-End-PCs, 2.500 Spiele und die beste Community der Stadt &ndash; 24/7 geöffnet.</p>
+          <div class="hero-actions">
+            <a href="buchung.html" class="btn btn-primary">Platz buchen</a>
+            <a href="preise.html" class="btn btn-outline">Tarife ansehen</a>
+          </div>
+          <div class="stat-row">
+            <span><strong data-count-to="40" data-count-suffix="+">40+</strong> Gaming-PCs</span>
+            <span class="dot"></span>
+            <span><strong data-count-to="2500" data-count-suffix="+">2.500+</strong> Spiele</span>
+            <span class="dot"></span>
+            <span><strong>24/7</strong></span>
+          </div>
+        </div>
+        <div class="hero-frame">
+          <img src="assets/cafe-1.jpg" alt="Gaming-Floor im PixelForge">
+          <div class="tag"><span></span>Gaming-Floor · Live</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MITTEN IN BERLIN -->
+    <section class="band" data-reveal>
+      <div class="wrap band-grid">
+        <div class="band-photo">
+          <img src="assets/cafe-2.jpg" alt="Lounge im PixelForge">
+        </div>
+        <div class="band-copy">
+          <p class="eyebrow">Mitten in Berlin</p>
+          <h2>Zentral, gemütlich,<br>immer offen.</h2>
+          <p class="lead">PixelForge liegt mitten in Berlin-Wedding &ndash; nur wenige Minuten vom U-Bahnhof Leopoldplatz. Zwischen den Sessions entspannst du in unserer gemütlichen Lounge, und das Glasfaser-Internet hält jeden Ping niedrig, egal wie voll der Floor ist.</p>
+          <div class="facts">
+            <div class="fact">
+              <div class="n">1 Gbit/s</div>
+              <div class="l">Symmetrische Glasfaser</div>
+            </div>
+            <div class="fact">
+              <div class="n">2 Min</div>
+              <div class="l">zum U Leopoldplatz</div>
+            </div>
+            <div class="fact">
+              <div class="n">Lounge</div>
+              <div class="l">Sofas &amp; Ruhezone</div>
+            </div>
+            <div class="fact">
+              <div class="n">24/7</div>
+              <div class="l">Durchgehend geöffnet</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREISE-TEASER -->
+    <section class="pricing" data-reveal>
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow">Tarife</p>
+          <h2>Faire Preise</h2>
+          <p>Keine versteckten Kosten, keine Abo-Falle. Zahl die Zeit, die du spielst &ndash; oder sicher dir einen Pass und spar dir die Uhr.</p>
+        </div>
+        <div class="tariffs">
+
+          <!-- Starter -->
+          <div class="card tariff">
+            <div class="t-name">Starter</div>
+            <div class="t-price">5&nbsp;€<span> / Stunde</span></div>
+            <div class="t-desc">Spontan vorbeischauen &amp; loslegen.</div>
+            <ul>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>High-End-PC, stundenweise</li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Zugang zu allen 2.500 Spielen</li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Minutengenaue Abrechnung</li>
+            </ul>
+            <a href="preise.html" class="btn btn-outline">Auswählen</a>
+          </div>
+
+          <!-- Tagespass (highlighted) -->
+          <div class="card tariff pop">
+            <div class="pop-badge">Beliebt</div>
+            <div class="t-name">Tagespass</div>
+            <div class="t-price">25&nbsp;€<span> / Tag</span></div>
+            <div class="t-desc">Ein Tag, kein Blick auf die Uhr.</div>
+            <ul>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Unbegrenzt spielen bis Mitternacht</li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Premium-Platz mit 240-Hz-Display</li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Ein Freigetränk inklusive</li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Platzreservierung vorab</li>
+            </ul>
+            <a href="buchung.html" class="btn btn-primary">Tagespass buchen</a>
+          </div>
+
+          <!-- Night-Surfer -->
+          <div class="card tariff">
+            <div class="t-name">Night-Surfer</div>
+            <div class="t-price">18&nbsp;€<span> / Nacht</span></div>
+            <div class="t-desc">Von 22 Uhr bis zum Morgengrauen.</div>
+            <ul>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Flat von 22:00 bis 06:00 Uhr</li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Ruhiger Floor, volle Bandbreite</li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Gratis Kaffee &amp; Snack-Bar</li>
+            </ul>
+            <a href="preise.html" class="btn btn-outline">Auswählen</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand">PixelForge</a>
+          <p class="tagline">Das Gaming- und Internet-Café in Berlin-Wedding. High-End-Hardware, 2.500 Spiele und eine Community, die niemanden allein zocken lässt.</p>
+        </div>
+        <div>
+          <h4>Seiten</h4>
+          <ul>
+            <li><a href="preise.html">Preise</a></li>
+            <li><a href="ausstattung.html">Ausstattung</a></li>
+            <li><a href="spiele.html">Spiele</a></li>
+            <li><a href="buchung.html">Buchung</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Community</h4>
+          <ul>
+            <li><a href="turniere.html">Turniere</a></li>
+            <li><a href="leaderboards.html">Leaderboards</a></li>
+            <li><a href="gastro.html">Gastro</a></li>
+            <li><a href="konto.html">Mein Konto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="agb.html">AGB</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PixelForge Gaming Café</span>
+        <span>Müllerstraße 12 · 13353 Berlin-Wedding</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

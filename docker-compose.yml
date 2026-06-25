@@ -1,0 +1,75 @@
+# =============================================================================
+# PixelForge — local stack (database + app)
+# -----------------------------------------------------------------------------
+# Brings up MariaDB and the Express backend (which also serves the static
+# frontend). Configuration comes from a root `.env` file — copy the template:
+#
+#     cp backend/.env.example .env
+#
+# and set DB_HOST=db (the service name below) for the app, plus a strong
+# SESSION_SECRET. Then:
+#
+#     docker compose up -d --build           # start db + app
+#     docker compose exec app npm run db:setup   # create schema + seed (once)
+#
+# `npm run db:setup` applies db/schema.sql + db/seed.sql and bcrypt-hashes the
+# admin password; re-running it re-creates a clean, seeded database.
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # MariaDB 11 — persistent via a named volume; healthcheck gates the app boot.
+  # ---------------------------------------------------------------------------
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      # The setup script connects as DB_USER; for the default `root` user we set
+      # the root password, otherwise create a dedicated user + database.
+      MARIADB_ROOT_PASSWORD: ${DB_PASSWORD:-}
+      MARIADB_DATABASE: ${DB_NAME:-pixelforge}
+      # Allow an empty root password for the POC if DB_PASSWORD is unset.
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: ${DB_PASSWORD:+}${DB_PASSWORD:-yes}
+    ports:
+      # Exposed for local inspection (e.g. a GUI client); not required by app.
+      - '3306:3306'
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      # `healthcheck.sh` ships with the mariadb image; gate on a live connection.
+      test: ['CMD', 'healthcheck.sh', '--connect', '--innodb_initialized']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  # ---------------------------------------------------------------------------
+  # app — Express API + static frontend. Waits for db to be healthy.
+  # ---------------------------------------------------------------------------
+  app:
+    build:
+      # Context is the repo root so the image can copy backend/ AND frontend/.
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Inside the compose network the database is reachable as host `db`.
+      DB_HOST: db
+      DB_PORT: '3306'
+      DB_USER: ${DB_USER:-root}
+      DB_PASSWORD: ${DB_PASSWORD:-}
+      DB_NAME: ${DB_NAME:-pixelforge}
+      PORT: '3000'
+      SESSION_SECRET: ${SESSION_SECRET:?set SESSION_SECRET in your .env}
+      ADMIN_BOOTSTRAP: ${ADMIN_BOOTSTRAP:-admin123}
+      NODE_ENV: ${NODE_ENV:-production}
+    ports:
+      - '3000:3000'
+
+# Named volume so database state survives `docker compose down` (use
+# `down -v` to wipe it and start fresh).
+volumes:
+  db_data:

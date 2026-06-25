@@ -1,0 +1,278 @@
+/* =========================================================================
+   components.community.css — tournaments + leaderboards
+   -------------------------------------------------------------------------
+   1) Turniere      — tournament cards (Turnier tag, status badge, Anmelden)
+   2) Leaderboards  — game tabs, Solo/Team segmented toggle, ranked <ol>
+                      with the top three highlighted.
+   ========================================================================= */
+
+/* =========================================================================
+   1) TOURNAMENTS
+   ========================================================================= */
+.tournament-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));
+  gap:22px;
+}
+.tcard{
+  display:flex;
+  flex-direction:column;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:24px 26px;
+  transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.tcard:hover{
+  border-color:var(--line-2);
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
+}
+/* featured / live tournament */
+.tcard.is-live{
+  border-color:var(--accent);
+  box-shadow:var(--shadow);
+}
+.tcard-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+}
+.tcard-game{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.78rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+.tcard h3{
+  font-size:1.3rem;
+  margin-bottom:6px;
+}
+.tcard .t-when{
+  color:var(--muted);
+  font-size:.92rem;
+  margin-bottom:18px;
+}
+
+/* meta grid: date / format / prize / slots */
+.tcard-meta{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:14px 18px;
+  padding:18px 0;
+  margin-bottom:18px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.tmeta .k{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.7rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+.tmeta .v{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:1.05rem;
+  color:var(--text);
+  margin-top:3px;
+}
+
+/* slots progress bar (booked vs capacity) */
+.t-slots{
+  margin-bottom:18px;
+}
+.t-slots .bar{
+  height:6px;
+  border-radius:999px;
+  background:var(--surface-2);
+  overflow:hidden;
+  margin-top:8px;
+}
+.t-slots .bar > span{
+  display:block;
+  height:100%;
+  width:var(--fill, 0%);
+  background:var(--accent);
+  border-radius:999px;
+}
+.tcard-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:auto;
+}
+.tcard-foot .btn{
+  flex:none;
+}
+
+/* =========================================================================
+   2) LEADERBOARDS
+   ========================================================================= */
+.lb-toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:24px;
+}
+
+/* game tabs reuse the .tablist/.tab pattern from catalog; nothing extra */
+
+/* Solo / Team segmented toggle */
+.segmented{
+  display:inline-flex;
+  padding:4px;
+  gap:4px;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:999px;
+}
+.segmented button{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.9rem;
+  color:var(--muted);
+  padding:.5em 1.2em;
+  border-radius:999px;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  min-height:38px;
+  transition:color .16s ease, background .16s ease;
+}
+.segmented button:hover{
+  color:var(--text);
+}
+.segmented button[aria-pressed="true"],
+.segmented button.active{
+  background:var(--accent);
+  color:var(--accent-ink);
+}
+
+/* ranked list (ordered) */
+.leaderboard{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+}
+/* column header row */
+.lb-head,
+.lb-row{
+  display:grid;
+  grid-template-columns:56px 1fr 90px 110px;
+  align-items:center;
+  gap:16px;
+  padding:14px 22px;
+}
+.lb-head{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--faint);
+  background:var(--bg-2);
+  border-bottom:1px solid var(--line);
+}
+.ranked{
+  counter-reset:rank;
+}
+.lb-row{
+  border-bottom:1px solid var(--line);
+  transition:background .16s ease;
+}
+.lb-row:last-child{
+  border-bottom:none;
+}
+.lb-row:hover{
+  background:var(--surface-2);
+}
+.lb-rank{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:32px;
+  height:32px;
+  border-radius:9px;
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:.95rem;
+  color:var(--muted);
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  font-variant-numeric:tabular-nums;
+}
+.lb-player{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
+.lb-avatar{
+  flex:none;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--surface-2);
+  border:1px solid var(--line-2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:.82rem;
+  color:var(--muted);
+}
+.lb-name{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:.98rem;
+  color:var(--text);
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.lb-team{
+  font-size:.82rem;
+  color:var(--muted);
+}
+.lb-wins,
+.lb-points{
+  font-family:var(--f-display);
+  font-weight:600;
+  font-variant-numeric:tabular-nums;
+  text-align:right;
+}
+.lb-points{
+  color:var(--accent);
+  font-weight:700;
+}
+
+/* --- podium highlight for ranks 1 / 2 / 3 --------------------------- */
+/* tinted accent-color knob keeps gold/silver/bronze derived, no neon */
+.lb-row.rank-1{ --medal:#e7c66b; background:color-mix(in srgb, var(--medal) 8%, transparent); }
+.lb-row.rank-2{ --medal:#c2c8d0; background:color-mix(in srgb, var(--medal) 7%, transparent); }
+.lb-row.rank-3{ --medal:#cf9b6c; background:color-mix(in srgb, var(--medal) 7%, transparent); }
+.lb-row.rank-1 .lb-rank,
+.lb-row.rank-2 .lb-rank,
+.lb-row.rank-3 .lb-rank{
+  color:var(--accent-ink);
+  background:var(--medal);
+  border-color:var(--medal);
+}
+.lb-row.rank-1 .lb-avatar,
+.lb-row.rank-2 .lb-avatar,
+.lb-row.rank-3 .lb-avatar{
+  border-color:var(--medal);
+  color:var(--text);
+}
