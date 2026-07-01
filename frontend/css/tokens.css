@@ -1,0 +1,12 @@
+/* tokens */
+
+:root{
+  --bg:#0f1012; --bg-2:#15171a; --surface: #1a1d21; --surface-2:#212429;
+  --line:#2a2e34; --line-2:#363b42;
+  --text:#f3f4f5;  --muted:#9ba1aa; --faint:#6b7178;
+  --accent: #5bbcf5;  --accent-soft: #88cef8; --accent-ink:#0d1117;
+  --ok:#5bbf8f; --warn:#e0b15a; --danger:#e9737f;
+  --r: 14px; --r-lg:22px; --maxw:1180px;
+  --shadow:0 10px 30px rgba(0,0,0,.35); --shadow-lg:0 24px 60px rgba(0,0,0,.45);
+  --f-display:'Space Grotesk',system-ui,sans-serif; --f-body:'Inter',system-ui,sans-serif;
+}

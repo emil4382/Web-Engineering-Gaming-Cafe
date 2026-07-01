@@ -1,0 +1,227 @@
+/* responsive */
+
+/* small desktop */
+@media (max-width:1200px){
+  .game-grid{
+    grid-template-columns:repeat(3, 1fr);
+  }
+  .footer-grid{
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+  .wrap-wide,
+  .plan-wrap,
+  .page-head{
+    padding-inline:28px;
+  }
+}
+
+/* tablet */
+@media (max-width:960px){
+
+  /* nav drawer */
+  .nav-toggle{
+    display:flex;
+    order:3;
+  }
+  .nav-right{
+    margin-left:auto;
+    gap:12px;
+  }
+  .nav-right .nav-login{
+    display: none;
+  }
+  .nav-inner{
+    gap:16px;
+    height:64px;
+   }
+
+  /* nav panel */
+  .nav-links{
+    position:fixed;
+    top:64px;
+    left:0;
+    right:0;
+    z-index:45;
+    flex-direction:column;
+    align-items:stretch;
+    gap:2px;
+    margin:0;
+    padding:14px 20px 22px;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--line);
+    box-shadow:var(--shadow-lg);
+    transform: translateY(-12px);
+    opacity:0;
+    visibility:hidden;
+    transition:transform .2s ease, opacity .2s ease, visibility .2s ease;
+    max-height:calc(100dvh - 64px);
+    overflow-y:auto;
+   }
+  .nav-links[data-open]{
+    transform:translateY(0);
+    opacity: 1;
+    visibility:visible;
+  }
+  .nav-links a{
+    padding:14px 8px;
+    font-size:1.02rem;
+    border-radius:10px;
+  }
+  .nav-links a:hover{
+    background: var(--surface-2);
+  }
+  .nav-links a.active:: after,
+  .nav-links a[aria-current="page"]::after{
+    display:none;
+  }
+  .nav-links a.active,
+  .nav-links a[aria-current="page"]{
+    color:var(--accent);
+    background: var(--surface-2);
+   }
+  .nav-links .nav-login-mobile{
+    display:block;
+  }
+
+  /* hero + band */
+  .hero-grid,
+  .band{
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+  .hero{
+    padding:48px 0 40px;
+  }
+  .hero-figure img{
+    height:380px;
+  }
+  .band img{
+    height:300px;
+  }
+
+  .tariffs{
+    grid-template-columns:1fr;
+    max-width: 440px;
+    margin-inline:auto;
+  }
+  .grid-3,
+  .grid-4{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .game-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+
+  .account-grid{
+    grid-template-columns:1fr;
+  }
+
+  .plan-card{
+    padding:20px;
+  }
+}
+
+/* phone */
+@media (max-width:640px){
+
+  .wrap,
+  .container{
+    padding-inline:18px;
+  }
+  .wrap-wide,
+  .plan-wrap,
+  .page-head{
+    padding-inline:18px;
+  }
+
+  .hero h1{
+    font-size:2.3rem;
+  }
+  .hero .lead{
+    font-size:1.05rem;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .game-grid,
+  .tournament-list,
+  .facts{
+    grid-template-columns:1fr;
+  }
+
+  .hero-actions{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-actions .btn,
+  .error-actions .btn{
+    width:100%;
+  }
+
+  .hero-figure img{
+    height: 300px;
+  }
+  .band img{
+    height:240px;
+  }
+
+  .stat-row{
+    gap:10px 14px;
+  }
+
+  .field-row{
+    flex-direction:column;
+    gap:0;
+  }
+
+  .book-fields{
+    grid-template-columns: 1fr;
+  }
+  .bk-summary{
+    flex-direction: column;
+    align-items:flex-start;
+    gap:12px;
+  }
+
+  .legend{
+    gap: 14px 22px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  .footer > .wrap > .footer-grid > div: first-child{
+    grid-column:1 / -1;
+   }
+  .footer-bottom{
+    flex-direction:column;
+    align-items: flex-start;
+  }
+
+  .toast-region{
+    left:12px;
+    right: 12px;
+    bottom:12px;
+    width:auto;
+  }
+
+  .section{
+    padding-block:40px;
+   }
+}
+
+/* tiny phone */
+@media (max-width:380px){
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* desktop */
+@media (min-width:961px){
+  .nav-links .nav-login-mobile{
+    display:none;
+   }
+}

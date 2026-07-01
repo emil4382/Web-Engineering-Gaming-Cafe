@@ -1,0 +1,78 @@
+/* typography */
+
+/* headings */
+h1{ font-size:clamp(2.1rem,  1.4rem + 2.6vw, 3.2rem); }
+h2{  font-size:clamp(1.7rem, 1.25rem + 1.7vw, 2.5rem); }
+h3{ font-size:clamp(1.2rem, 1.05rem + .6vw, 1.45rem); }
+h4{ font-size:1.05rem; }
+h5{ font-size:.95rem; }
+h6{ font-size:.875rem; }
+
+/* display */
+.display{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(2.6rem,  1.6rem + 3.6vw,  3.9rem);
+  line-height:1.05;
+  letter-spacing:-.03em;
+}
+
+/* body */
+p{
+  font-family: var(--f-body);
+}
+.lead{
+  font-size:1.12rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* text colors */
+.muted{ color: var(--muted);  }
+.faint{ color:var(--faint); }
+.text-accent{ color:var(--accent); }
+
+/* eyebrow */
+.eyebrow{
+  display:inline-block;
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size: .82rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+
+/* section head */
+.section-head{
+  max-width:36em;
+}
+.section-title{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(1.9rem, 1.3rem + 2.2vw, 2.6rem);
+  line-height:1.08;
+  letter-spacing:-.02em;
+  margin-top: .4em;
+}
+.section-subtitle{
+  margin-top:.6em;
+  font-size:1.06rem;
+  color: var(--muted);
+  line-height:1.6;
+}
+
+/* emphasis */
+strong,
+b{
+  font-weight:700;
+  color: var(--text);
+}
+small{
+  font-size:.84rem;
+}
+
+/* tabular nums */
+.tnum{
+  font-variant-numeric:tabular-nums;
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head >
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buchung · PixelForge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head >
+<body data-page="buchung">
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand">PixelForge</a>
+
+    <button id="navToggle" class="nav-toggle" type="button"
+            aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMenu" >
+      <span class="bar"></span><span class="bar" ></span><span class="bar"></span>
+    </button>
+
+    <nav id="navMenu" class="nav-links" aria-label="Hauptnavigation">
+      <a href="index.html">Home</a>
+      <a href="preise.html">Preise</a>
+      <a href="ausstattung.html">Ausstattung</a>
+      <a href="spiele.html">Spiele</a>
+      <a href="buchung.html" class="active" aria-current="page">Buchung</a>
+      <a href="turniere.html">Turniere</a>
+      <a href="konto.html" class="nav-login-mobile">Log-In</a>
+    </nav >
+
+    <div class="nav-right">
+      <a href="konto.html" class="nav-login">Log-In</a>
+      <a href="buchung.html" class="btn btn-primary">Platz buchen</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" >
+  <div class="wrap book-wrap">
+    <div class="page-head">
+      <span class="kicker">Reservierung</span>
+      <h1>Platz buchen</h1 >
+    </div>
+
+    <section class="section" aria-labelledby="planHeading">
+      <div class="book-layout">
+
+        <!-- floor plan -->
+        <div class="plan-card">
+          <div class="plan-head">
+            <div class="title" >
+              <h2 id="planHeading">Raumplan</h2>
+            </div>
+            <div class="legend" aria-label="Legende Platzstatus">
+              <span class="li"><span class="sw" aria-hidden="true"></span >Verfügbar</span>
+              <span class="li"><span class="sw occ" aria-hidden="true"></span>Belegt</span>
+              <span class="li"><span class="sw res" aria-hidden="true"></span >Reserviert</span>
+              <span class="li"><span class="sw sel" aria-hidden="true"></span>Ausgewählt</span>
+            </div>
+          </div >
+
+          <div class="room-scroll">
+            <div class="room-frame" id="room">
+              <div class="floor"></div>
+
+              <!-- bar -->
+              <div class="bar2 vert" style="left:892px;top:110px;width:158px;height:360px">
+                <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 4h18l-2 7H5L3 4z"/><path d="M5 11v9h14v-9"/><path d="M9 20v-5h6v5"/></svg></span>
+                <div class="bt" ><strong>Tresen / Bar</strong><span>Snacks, Drinks &amp; Check-in</span></div>
+                <div class="stools"><span class="stool"></span><span class="stool"></span><span class="stool"></span><span class="stool"></span><span class="stool"></span><span class="stool"></span></div>
+              </div>
+
+              <!-- fridge -->
+              <div class="fridge" style="left:892px;top:500px;width:158px">
+                <span class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.2"/><path d="M6 10h12"/><path d="M9.2 5.4v2.2"/><path d="M9.2 12.6v3"/></svg></span >
+                <div class="ft"><strong>Getränke</strong><span >Kühlschrank</span></div>
+              </div>
+
+              <!-- entrance -->
+              <div class="entrance2" style="left:642px;top:592px" >
+                <span class="ic"><svg viewBox="0 0 24 24"><path d="M14 3v18"/><path d="M14 3H6v18h8"/><path d="M10 12h.01"/><path d="M18 8l3 4-3 4"/><path d="M21 12h-7"/></svg></span>
+                <div class="et"><strong >Eingang</strong><span>Empfang &amp; Garderobe</span></div>
+              </div>
+
+
+              <!-- walls -->
+              <svg class="walls" viewBox="0 0 1100 680" preserveAspectRatio="none" aria-hidden="true">
+                <polygon points="2,2 879,2 1098,123 1098,678 220,678 2,544" fill="none" stroke="var(--line-2)" stroke-width="3" stroke-linejoin="round"></polygon>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- booking panel -->
+        <div class="booking-area">
+          <div class="card booking">
+            <div class="bk-head">
+              <div>
+                <h3>Reservierung</h3>
+              </div>
+              <div class="bk-thumb"><img src="assets/cafe-1.jpg" alt="Gaming-Platz im PixelForge" loading="lazy" ></div>
+            </div>
+
+            <form id="bookingForm" novalidate >
+              <div class="book-fields">
+                <div class="field full">
+                  <label for="bk-place">Platz</label>
+                  <output id="bk-place" class="field-readout" tabindex="-1"
+                          aria-describedby="bk-place-error" >Noch kein Platz gewählt</output >
+                  <p class="field-error" id="bk-place-error" role="alert" ></p>
+                </div>
+                <div class="field full" >
+                  <label for="bk-date">Datum</label >
+                  <input id="bk-date" name="date" type="date" required
+                         aria-describedby="bk-date-error" >
+                  <p class="field-error" id="bk-date-error" role="alert"></p >
+                </div>
+                <div class="field full">
+                  <label for="bk-start">Zeitfenster</label >
+                  <div class="time-range" >
+                    <select id="bk-start" name="start" required
+                            aria-label="Startzeit" aria-describedby="bk-time-error">
+                      <option value="" selected disabled >Von …</option >
+                    </select>
+                    <span class="time-sep" aria-hidden="true">–</span>
+                    <select id="bk-end" name="end" required
+                            aria-label="Endzeit" aria-describedby="bk-time-error">
+                      <option value="" selected disabled>Bis …</option>
+                    </select>
+                  </div>
+                  <p class="field-error" id="bk-time-error" role="alert"></p>
+                </div>
+                <div class="field" >
+                  <label for="bk-tarif">Tarif</label>
+                  <select id="bk-tarif" name="tarif" ></select>
+                </div>
+                <div class="field">
+                  <label for="bk-name">Name</label>
+                  <input id="bk-name" name="name" type="text" placeholder="Vor- und Nachname"
+                         required autocomplete="name" aria-describedby="bk-name-error">
+                  <p class="field-error" id="bk-name-error" role="alert" ></p >
+                </div>
+              </div>
+
+              <div class="bk-summary">
+                <div class="price">
+                  <span class="total" id="bk-total" >– <span>€</span></span >
+                  <small id="bk-note">Wähle einen Platz im Raumplan.</small>
+                </div>
+                <button class="btn btn-primary" type="submit">Platz reservieren</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div >
+</main>
+
+<footer class="footer">
+  <div class="wrap" >
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand">PixelForge</a>
+        <p class="tagline">Das Gaming- und Internet-Café in Karlsruhe. High-End-Hardware, 2.500 Spiele und eine Community, die niemanden allein zocken lässt.</p >
+      </div >
+      <div>
+        <h4 >Seiten</h4>
+        <ul>
+          <li ><a href="preise.html" >Preise</a></li >
+          <li><a href="ausstattung.html" >Ausstattung</a></li >
+          <li><a href="spiele.html">Spiele</a></li>
+          <li><a href="buchung.html" >Buchung</a></li >
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="turniere.html">Turniere</a></li>
+          <li><a href="konto.html">Mein Konto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="agb.html">AGB</a></li>
+          <li><a href="datenschutz.html" >Datenschutz</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom" >
+      <span>© 2026 PixelForge Gaming Café</span>
+      <span>Karlstraße 12 · 76133 Karlsruhe</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toastRegion" class="toast-region" role="status" aria-live="polite"></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

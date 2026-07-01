@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mein Konto · PixelForge</title >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-page="konto" >
+  <a class="skip-link" href="#main">Zum Inhalt springen</a >
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand" >PixelForge</a>
+
+      <button id="navToggle" class="nav-toggle" type="button"
+              aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMenu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <nav id="navMenu" class="nav-links" aria-label="Hauptnavigation">
+        <a href="index.html" >Home</a>
+        <a href="preise.html" >Preise</a>
+        <a href="ausstattung.html">Ausstattung</a>
+        <a href="spiele.html">Spiele</a >
+        <a href="buchung.html">Buchung</a >
+        <a href="turniere.html">Turniere</a>
+        <a href="konto.html" class="nav-login-mobile active" aria-current="page">Log-In</a >
+      </nav>
+
+      <div class="nav-right">
+        <a href="konto.html" class="nav-login active" aria-current="page">Log-In</a>
+        <a href="buchung.html" class="btn btn-primary">Platz buchen</a >
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <div class="page-head">
+        <p class="eyebrow">Konto</p>
+        <div class="konto-head-row" >
+          <h1 id="konto-heading">Mein Konto</h1>
+        </div>
+        <p id="konto-intro" >Melde dich an oder erstelle ein kostenloses PixelForge-Konto, um Plätze zu buchen und dich für Turniere anzumelden.</p>
+      </div>
+    </div>
+
+    <section class="section" id="authSection" >
+      <div class="wrap">
+        <div class="card auth-card" id="authCard">
+
+          <!-- login view -->
+          <div class="auth-view" id="loginView" >
+            <p class="kicker">Willkommen zurück</p>
+            <h2>Einloggen</h2>
+            <p class="lead">Melde dich mit deinem Benutzernamen und Passwort an.</p >
+
+            <form id="loginForm" novalidate>
+              <div class="field">
+                <label for="loginUsername">Benutzername</label>
+                <input type="text" id="loginUsername" name="username"
+                       autocomplete="username" required
+                       aria-describedby="loginUsernameError">
+                <p class="field-error" id="loginUsernameError" role="alert"></p>
+              </div >
+
+              <div class="field">
+                <label for="loginPassword">Passwort</label>
+                <input type="password" id="loginPassword" name="password"
+                       autocomplete="current-password" required
+                       aria-describedby="loginPasswordError">
+                <p class="field-error" id="loginPasswordError" role="alert" ></p>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Einloggen</button >
+            </form >
+
+            <p class="auth-alt">Noch kein Konto?
+              <button type="button" id="toRegister">Jetzt registrieren</button>
+            </p>
+          </div>
+
+          <!-- register view -->
+          <div class="auth-view" id="registerView" hidden>
+            <p class="kicker">Neu hier?</p>
+            <h2 >Registrierung</h2>
+            <p class="lead" >Erstelle in wenigen Sekunden dein kostenloses Konto.</p>
+
+            <form id="registerForm" novalidate>
+              <div class="field">
+                <label for="registerUsername">Benutzername</label>
+                <input type="text" id="registerUsername" name="username"
+                       autocomplete="username" required minlength="3"
+                       aria-describedby="registerUsernameHint registerUsernameError">
+                <p class="field-hint" id="registerUsernameHint">Benutzername min. 3 Zeichen</p>
+                <p class="field-error" id="registerUsernameError" role="alert" ></p >
+              </div>
+
+              <div class="field">
+                <label for="registerPassword">Passwort</label>
+                <input type="password" id="registerPassword" name="password"
+                       autocomplete="new-password" required minlength="6"
+                       aria-describedby="registerPasswordHint registerPasswordError">
+                <p class="field-hint" id="registerPasswordHint">Passwort min. 6 Zeichen</p>
+                <p class="field-error" id="registerPasswordError" role="alert"></p>
+              </div>
+
+              <div class="field" >
+                <label for="registerPasswordConfirm">Passwort wiederholen</label>
+                <input type="password" id="registerPasswordConfirm" name="passwordConfirm"
+                       autocomplete="new-password" required
+                       aria-describedby="registerPasswordConfirmError">
+                <p class="field-error" id="registerPasswordConfirmError" role="alert" ></p>
+              </div >
+
+              <button type="submit" class="btn btn-primary">Konto erstellen</button>
+            </form>
+
+            <p class="auth-alt">Schon ein Konto?
+              <button type="button" id="toLogin">Einloggen</button>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reservationsSection" aria-labelledby="reservationsHeading" hidden>
+      <div class="wrap">
+        <h2 id="reservationsHeading" class="res-heading" tabindex="-1">Meine Reservierungen</h2>
+        <div id="myBookings" class="res-list">
+        </div >
+      </div>
+    </section>
+
+    <section class="section" id="tournamentsSection" aria-labelledby="tournRegsHeading" hidden>
+      <div class="wrap">
+        <h2 id="tournRegsHeading" class="res-heading" tabindex="-1">Meine Turnier-Anmeldungen</h2>
+        <div id="myTournaments" class="res-list" >
+        </div>
+      </div>
+    </section >
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand">PixelForge</a>
+          <p class="tagline">Das Gaming- und Internet-Café in Karlsruhe. High-End-Hardware, 2.500 Spiele und eine Community, die niemanden allein zocken lässt.</p>
+        </div>
+        <div>
+          <h4>Seiten</h4 >
+          <ul>
+            <li ><a href="preise.html">Preise</a></li>
+            <li><a href="ausstattung.html">Ausstattung</a></li >
+            <li><a href="spiele.html">Spiele</a></li>
+            <li><a href="buchung.html">Buchung</a ></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Community</h4>
+          <ul>
+            <li><a href="turniere.html">Turniere</a></li>
+            <li ><a href="konto.html">Mein Konto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 >Rechtliches</h4>
+          <ul>
+            <li><a href="agb.html" >AGB</a ></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li >
+          </ul>
+        </div >
+      </div>
+      <div class="footer-bottom" >
+        <span >© 2026 PixelForge Gaming Café</span>
+        <span>Karlstraße 12 · 76133 Karlsruhe</span>
+      </div >
+    </div>
+  </footer >
+
+  <div id="toastRegion" class="toast-region" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body >
+</html >

@@ -1,0 +1,47 @@
+# local stack: database + app
+
+services:
+  # database
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${DB_NAME:-pixelforge}
+      MARIADB_USER: ${DB_USER:-pixelforge}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-pixelforge}
+      MARIADB_ROOT_PASSWORD: ${DB_PASSWORD:-pixelforge}
+    ports:
+      - '3306:3306'
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'healthcheck.sh', '--connect', '--innodb_initialized']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  # backend + frontend
+  app:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: '3306'
+      DB_USER: ${DB_USER:-pixelforge}
+      DB_PASSWORD: ${DB_PASSWORD:-pixelforge}
+      DB_NAME: ${DB_NAME:-pixelforge}
+      PORT: '3000'
+      SESSION_SECRET: ${SESSION_SECRET:?set SESSION_SECRET in your .env}
+      ADMIN_BOOTSTRAP: ${ADMIN_BOOTSTRAP:-admin123}
+      NODE_ENV: ${NODE_ENV:-production}
+    ports:
+      - '3000:3000'
+
+volumes:
+  db_data:
