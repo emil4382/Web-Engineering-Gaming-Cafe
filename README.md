@@ -1,6 +1,6 @@
 # PixelForge - Gaming & Internet Café
 
-Web-App für ein erfundenes PC-Gaming- und Internet-Café in Karlsruhe.
+Web-App für ein erfundenes PC-Gaming-Café in Karlsruhe.
 Man kann PC-Plätze über einen interaktiven Raumplan reservieren, es gibt eine
 Spiele-Bibliothek, Turniere mit Accounts/Teams und einen Admin-Bereich. Alles im
 dunklen, modernen Design.
@@ -25,7 +25,7 @@ Backend läuft mit Node.js + Express, Datenbank ist MySQL/MariaDB. Kein Framewor
 Barrierefreiheit: Skip-Link, durchgehende Heading-Hierarchie, `aria-*`, sichtbarer Fokus-Ring,
 volle Tastaturbedienung (Sitzplan & Tabs sind echte `<button>`s), `prefers-reduced-motion`-Guard.
 
-Browser-APIs: kein Canvas, aber `localStorage`, `IntersectionObserver`, History/Fetch.
+Browser-APIs: `localStorage`, `IntersectionObserver`, History/Fetch.
 
 ## Projektstruktur
 
@@ -48,7 +48,6 @@ Browser-APIs: kein Canvas, aber `localStorage`, `IntersectionObserver`, History/
 │   ├── lib/ validators/ middleware/      # Helper · Validierung · Auth/Errors
 │   └── test/                 # node:test Unit-Tests (ohne DB)
 ├── docker-compose.yml        # App + MariaDB
-├── PLAN.md · SPIELE.md       # Projektplan · Spieleliste
 ```
 
 ## Lokal starten
@@ -174,6 +173,5 @@ per User (Solo) oder per Team. Schema & Beispieldaten liegen in `backend/db/`.
 cd backend && npm test    # 33 Unit-Tests (Verfügbarkeit, Buchungs- & Auth-Validierung)
 ```
 
-Die Tests greifen nicht auf die DB zu, laufen also stabil durch.
 
 © 2026 PixelForge Gaming Café - Studienprojekt Web Engineering.
