@@ -2,8 +2,7 @@
 
 Web-App für ein erfundenes PC-Gaming-Café in Karlsruhe.
 Man kann PC-Plätze über einen interaktiven Raumplan reservieren, es gibt eine
-Spiele-Bibliothek, Turniere mit Accounts/Teams und einen Admin-Bereich. Alles im
-dunklen, modernen Design.
+Spiele-Bibliothek, Turniere mit Accounts/Teams und einen Admin-Bereich.
 
 Studienprojekt (Web Engineering). Frontend ist Vanilla HTML5 + CSS3 + ES-Module-JavaScript.
 Backend läuft mit Node.js + Express, Datenbank ist MySQL/MariaDB. Kein Framework, kein Build-Step.
@@ -95,10 +94,6 @@ GRANT ALL PRIVILEGES ON pixelforge.* TO 'pixelforge'@'localhost', 'pixelforge'@'
 FLUSH PRIVILEGES;
 ```
 
-Warum ein eigener Benutzer und nicht `root`? Unter Linux/macOS meldet sich `root` per
-Unix-Socket an und kann sich nicht per Passwort über TCP verbinden. Ein normaler DB-Benutzer
-funktioniert überall gleich, und die Zugangsdaten stehen schon passend in `backend/.env.example`.
-
 3. Backend starten:
 
 ```bash
@@ -112,7 +107,7 @@ npm run dev                    # Server auf http://localhost:3000
 Der Seed legt einen Staff-Account an: `admin` / `admin123` (in `.env` über `ADMIN_BOOTSTRAP`
 änderbar).
 
-### Option C - schnell mal reingucken, ganz ohne Datenbank
+### Option C - Schnell mal reingucken
 
 ```bash
 cd backend && npm install && cp .env.example .env && npm run dev
